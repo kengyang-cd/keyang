@@ -523,6 +523,12 @@ export default function Home() {
                 孙凤 18980020731
               </Link>
             </Button>
+            <Button asChild size="lg" className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-orange-600 px-6 py-6 text-base rounded-full">
+              <Link href="tel:13678114295">
+                <Phone className="mr-2 h-5 w-5" />
+                孙瑾 13678114295
+              </Link>
+            </Button>
 
           </div>
         </div>
