@@ -39,7 +39,7 @@ const teamMembers = [
     specialties: ['股权架构', '企业增长', 'AI赋能'],
     image: '/team/丁汝彬.png',
   },
-
+  {
     name: '马晓兰',
     role: '财税顾问',
     title: '执业注册税务师 · 会计师',
