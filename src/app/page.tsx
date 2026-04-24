@@ -220,7 +220,7 @@ export default function Home() {
                 </Card>
 
                 {/* 联合创始人卡片 - 孙瑾 */}
-                <Card className="absolute -top-4 -left-6 z-20 w-72 shadow-xl border-blue-100 rounded-2xl overflow-hidden bg-white">
+                <Card className="absolute -bottom-2 -left-4 z-20 w-72 shadow-xl border-blue-100 rounded-2xl overflow-hidden bg-white">
                   <CardContent className="p-4">
                     <div className="flex items-center gap-4">
                       <div className="w-16 h-16 rounded-full overflow-hidden bg-blue-100 flex-shrink-0">
