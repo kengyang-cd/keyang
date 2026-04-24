@@ -31,6 +31,15 @@ const teamMembers = [
     image: '/team/孙凤.png',
   },
   {
+    name: '孙瑾',
+    role: '联合创始人',
+    title: '执业注册税务师 · 会计师',
+    highlight: '工商注册注销专家',
+    description: '擅长工商注册、公司变更、注销等业务，服务企业数百家',
+    specialties: ['工商注册', '公司变更', '注销清算'],
+    image: '/team/孙瑾.jpg',
+  },
+  {
     name: '丁汝彬',
     role: '联合创始人',
     title: '执业注册税务师 · 会计师 · AI商业培训导师',
@@ -209,7 +218,29 @@ export default function Home() {
                     </div>
                   </CardContent>
                 </Card>
-                
+
+                {/* 联合创始人卡片 - 孙瑾 */}
+                <Card className="absolute -top-4 -left-6 z-20 w-72 shadow-xl border-blue-100 rounded-2xl overflow-hidden bg-white">
+                  <CardContent className="p-4">
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 rounded-full overflow-hidden bg-blue-100 flex-shrink-0">
+                        <Image
+                          src="/team/孙瑾.jpg"
+                          alt="孙瑾"
+                          width={64}
+                          height={64}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <p className="font-bold text-gray-900">孙瑾</p>
+                        <p className="text-sm text-orange-600">联合创始人</p>
+                        <p className="text-xs text-gray-500">工商注册注销专家</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
                 {/* 联合创始人卡片 - 丁汝彬 */}
                 <Card className="absolute top-36 -right-4 z-20 w-72 shadow-xl border-amber-100 rounded-2xl overflow-hidden bg-white">
                   <CardContent className="p-4">
@@ -231,7 +262,7 @@ export default function Home() {
                     </div>
                   </CardContent>
                 </Card>
-                
+
 
                 
 
