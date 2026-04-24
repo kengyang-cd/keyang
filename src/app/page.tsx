@@ -234,27 +234,7 @@ export default function Home() {
                 
 
                 
-                {/* 联合创始人卡片 - 孙瑾 */}
-                <Card className="absolute -bottom-2 -left-4 z-20 w-72 shadow-xl border-blue-100 rounded-2xl overflow-hidden bg-white">
-                  <CardContent className="p-4">
-                    <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 rounded-full overflow-hidden bg-blue-100 flex-shrink-0">
-                        <Image
-                          src="/team/孙瑾.jpg"
-                          alt="孙瑾"
-                          width={64}
-                          height={64}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div>
-                        <p className="font-bold text-gray-900">孙瑾</p>
-                        <p className="text-sm text-orange-600">联合创始人</p>
-                        <p className="text-xs text-gray-500">工商注册注销专家</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+
                 
                 {/* 背景装饰 */}
                 <div className="w-full h-[500px] bg-gradient-to-br from-orange-100 to-amber-100 rounded-3xl" />
