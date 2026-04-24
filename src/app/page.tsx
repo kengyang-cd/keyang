@@ -31,15 +31,6 @@ const teamMembers = [
     image: '/team/孙凤.png',
   },
   {
-    name: '孙瑾',
-    role: '联合创始人',
-    title: '执业注册税务师 · 会计师',
-    highlight: '工商注册注销专家',
-    description: '擅长工商注册、公司变更、注销等业务，服务企业数百家',
-    specialties: ['工商注册', '公司变更', '注销清算'],
-    image: '/team/孙瑾.jpg',
-  },
-  {
     name: '丁汝彬',
     role: '联合创始人',
     title: '执业注册税务师 · 会计师 · AI商业培训导师',
