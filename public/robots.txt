@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://keyang-tax-website.vercel.app/sitemap.xml
