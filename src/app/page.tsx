@@ -278,6 +278,22 @@ export default function Home() {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* 孙瑾 - 第三卡片 */}
+              <Card className="w-full max-w-sm shadow-lg shadow-black/10 border border-white/10 rounded-2xl overflow-hidden bg-white/10 backdrop-blur-md">
+                <CardContent className="p-5">
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 rounded-xl overflow-hidden bg-white/20 ring-2 ring-amber-400/50">
+                      <Image src="/team/孙瑾.jpg" alt="孙瑾" width={56} height={56} className="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <p className="font-bold text-white text-base">孙瑾</p>
+                      <p className="text-amber-400 text-sm">联合创始人</p>
+                      <p className="text-white/50 text-xs mt-0.5">企业增长顾问</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
