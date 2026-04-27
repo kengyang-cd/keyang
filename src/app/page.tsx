@@ -229,7 +229,7 @@ export default function Home() {
                     立即咨询
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-8 py-6 text-base rounded-full w-full sm:w-auto backdrop-blur-sm">
+                <Button asChild size="lg" className="bg-white/10 hover:bg-white/20 border-2 border-white/30 text-white px-8 py-6 text-base rounded-full w-full sm:w-auto backdrop-blur-md transition-all">
                   <Link href="/services">
                     了解服务
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -238,68 +238,46 @@ export default function Home() {
               </div>
             </div>
 
-            {/* 右侧团队展示 */}
-            <div className="hidden lg:flex justify-center">
-              <div className="relative w-full max-w-md">
-                {/* 主卡片 - 创始人 */}
-                <Card className="relative z-10 w-full shadow-2xl shadow-black/20 border border-white/10 rounded-3xl overflow-hidden bg-white/10 backdrop-blur-md">
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 rounded-2xl overflow-hidden bg-white/20 flex-shrink-0 ring-2 ring-amber-400/50">
-                        <Image src="/team/孙凤.png" alt="孙凤" width={64} height={64} className="w-full h-full object-cover" />
-                      </div>
-                      <div>
-                        <p className="font-bold text-white text-lg">孙凤</p>
-                        <p className="text-amber-400 text-sm font-medium">创始人 · 执业注册税务师</p>
-                        <p className="text-white/50 text-xs mt-0.5">近30年实战经验</p>
-                      </div>
+            {/* 右侧团队展示 - 孙凤在上，丁汝彬在下 */}
+            <div className="hidden lg:flex flex-col items-center gap-4">
+              {/* 孙凤 - 主卡片 */}
+              <Card className="w-full max-w-sm shadow-2xl shadow-black/20 border border-white/10 rounded-3xl overflow-hidden bg-white/10 backdrop-blur-md">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 rounded-2xl overflow-hidden bg-white/20 flex-shrink-0 ring-2 ring-amber-400/50">
+                      <Image src="/team/孙凤.png" alt="孙凤" width={64} height={64} className="w-full h-full object-cover" />
                     </div>
-                    <div className="mt-4 pt-4 border-t border-white/10">
-                      <div className="flex flex-wrap gap-2">
-                        {['疑难账务', '税务稽查', '股权架构'].map((tag, i) => (
-                          <span key={i} className="px-2.5 py-1 bg-white/10 text-white/70 text-xs rounded-full">{tag}</span>
-                        ))}
-                      </div>
+                    <div>
+                      <p className="font-bold text-white text-lg">孙凤</p>
+                      <p className="text-amber-400 text-sm font-medium">创始人 · 执业注册税务师</p>
+                      <p className="text-white/50 text-xs mt-0.5">近30年实战经验</p>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-white/10">
+                    <div className="flex flex-wrap gap-2">
+                      {['疑难账务', '税务稽查', '股权架构'].map((tag, i) => (
+                        <span key={i} className="px-2.5 py-1 bg-white/10 text-white/70 text-xs rounded-full">{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
 
-                {/* 浮动卡片 - 丁汝彬 */}
-                <Card className="absolute -bottom-4 -right-4 z-20 w-64 shadow-xl border border-white/10 rounded-2xl overflow-hidden bg-white/10 backdrop-blur-md">
-                  <CardContent className="p-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-xl overflow-hidden bg-white/20 ring-2 ring-amber-400/50">
-                        <Image src="/team/丁汝彬.png" alt="丁汝彬" width={48} height={48} className="w-full h-full object-cover" />
-                      </div>
-                      <div>
-                        <p className="font-bold text-white">丁汝彬</p>
-                        <p className="text-amber-400 text-xs">联合创始人</p>
-                        <p className="text-white/50 text-xs">股权架构师</p>
-                      </div>
+              {/* 丁汝彬 - 次卡片 */}
+              <Card className="w-full max-w-sm shadow-xl shadow-black/10 border border-white/10 rounded-2xl overflow-hidden bg-white/10 backdrop-blur-md">
+                <CardContent className="p-5">
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 rounded-xl overflow-hidden bg-white/20 ring-2 ring-amber-400/50">
+                      <Image src="/team/丁汝彬.png" alt="丁汝彬" width={56} height={56} className="w-full h-full object-cover" />
                     </div>
-                  </CardContent>
-                </Card>
-
-                {/* 浮动卡片 - 团队 */}
-                <Card className="absolute top-8 -left-6 z-20 w-48 shadow-xl border border-white/10 rounded-2xl overflow-hidden bg-white/10 backdrop-blur-md">
-                  <CardContent className="p-4">
-                    <div className="flex items-center gap-3">
-                      <div className="flex -space-x-2">
-                        {[1,2,3].map(i => (
-                          <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 ring-2 ring-white/30" />
-                        ))}
-                      </div>
-                      <div>
-                        <p className="text-white text-sm font-semibold">持证专业团队</p>
-                        <p className="text-white/50 text-xs">随时响应</p>
-                      </div>
+                    <div>
+                      <p className="font-bold text-white text-base">丁汝彬</p>
+                      <p className="text-amber-400 text-sm">联合创始人</p>
+                      <p className="text-white/50 text-xs mt-0.5">懂税的股权架构师</p>
                     </div>
-                  </CardContent>
-                </Card>
-
-                {/* 背景装饰 */}
-                <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br from-blue-600/20 to-indigo-600/20 blur-xl" />
-              </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
