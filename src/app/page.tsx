@@ -212,7 +212,7 @@ export default function Home() {
                 {[
                   { num: '12年', label: '深耕行业' },
                   { num: '1000+', label: '服务企业' },
-                  { num: '12人', label: '专业团队' },
+                  { num: '持证', label: '专业团队' },
                 ].map((item, i) => (
                   <div key={i} className="text-center">
                     <p className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">{item.num}</p>
@@ -290,7 +290,7 @@ export default function Home() {
                         ))}
                       </div>
                       <div>
-                        <p className="text-white text-sm font-semibold">12人团队</p>
+                        <p className="text-white text-sm font-semibold">持证专业团队</p>
                         <p className="text-white/50 text-xs">随时响应</p>
                       </div>
                     </div>
@@ -338,7 +338,7 @@ export default function Home() {
           </div>
 
           <div className="mt-12 text-center">
-            <Button asChild className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-5 rounded-full text-sm font-medium">
+            <Button asChild className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-5 rounded-full text-sm font-medium shadow-lg shadow-blue-500/20">
               <Link href="/services">
                 查看全部服务
                 <ArrowRight className="ml-2 h-4 w-4" />
