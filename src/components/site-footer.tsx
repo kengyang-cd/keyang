@@ -19,7 +19,7 @@ export function SiteFooter() {
                 />
               </div>
               <p className="text-sm text-muted-foreground">
-                专业、可靠、高效的税务服务合作伙伴，为企业提供全生命周期财税以及股权服务。
+                深耕财税服务近 30 年，提供从账务规范、税务合规到常年顾问的一站式全周期解决方案。
               </p>
             </div>
           </div>
@@ -32,13 +32,38 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-sm text-muted-foreground hover:text-primary">
-                  服务项目
+                <Link href="/about" className="text-sm text-muted-foreground hover:text-primary">
+                  关于我们
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-sm text-muted-foreground hover:text-primary">
-                  关于我们
+                <Link href="/services" className="text-sm text-muted-foreground hover:text-primary">
+                  核心服务
+                </Link>
+              </li>
+              <li>
+                <Link href="/solutions" className="text-sm text-muted-foreground hover:text-primary">
+                  行业解决方案
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold text-foreground">更多内容</h3>
+            <ul role="list" className="mt-4 space-y-3">
+              <li>
+                <Link href="/cases" className="text-sm text-muted-foreground hover:text-primary">
+                  标杆案例
+                </Link>
+              </li>
+              <li>
+                <Link href="/policy" className="text-sm text-muted-foreground hover:text-primary">
+                  政策法规
+                </Link>
+              </li>
+              <li>
+                <Link href="/team" className="text-sm text-muted-foreground hover:text-primary">
+                  专家团队
                 </Link>
               </li>
               <li>
@@ -97,7 +122,7 @@ export function SiteFooter() {
         </div>
         <div className="mt-8 border-t border-border pt-8 text-center space-y-2">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} 成都市柯洋税务师事务所有限公司. 保留所有权利.
+            © {new Date().getFullYear()} 成都市柯洋税务师事务所. 保留所有权利.
           </p>
           <a
             href="https://beian.miit.gov.cn/"

@@ -9,8 +9,12 @@ import { useState } from 'react';
 
 const navigation = [
   { name: '首页', href: '/' },
-  { name: '服务项目', href: '/services' },
   { name: '关于我们', href: '/about' },
+  { name: '核心服务', href: '/services' },
+  { name: '行业解决方案', href: '/solutions' },
+  { name: '标杆案例', href: '/cases' },
+  { name: '政策法规', href: '/policy' },
+  { name: '专家团队', href: '/team' },
   { name: '联系我们', href: '/contact' },
 ];
 
@@ -20,7 +24,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-6 py-4" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
             <div className="relative h-10 w-auto">
@@ -45,12 +49,12 @@ export function SiteHeader() {
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
-        <div className="hidden lg:flex lg:gap-x-8">
+        <div className="hidden lg:flex lg:gap-x-6 xl:gap-x-8">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className={`text-sm font-semibold leading-6 transition-colors hover:text-primary ${
+              className={`text-sm font-medium leading-6 transition-colors hover:text-primary ${
                 pathname === item.href ? 'text-primary' : 'text-foreground/70'
               }`}
             >

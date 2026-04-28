@@ -19,6 +19,7 @@ import {
   Star,
   Users,
   Briefcase,
+  ExternalLink,
 } from 'lucide-react';
 
 // 资质背书数据
@@ -134,6 +135,14 @@ const services = [
   { icon: CheckCircle2, title: '历史账清理', description: '梳理乱账旧账，让账目清晰合规', color: 'bg-slate-50 text-slate-600', hoverColor: 'group-hover:bg-slate-100' },
 ];
 
+// 官方链接数据
+const officialLinks = [
+  { name: '国家税务总局', url: 'https://www.chinatax.gov.cn/' },
+  { name: '政策法规库', url: 'https://fgk.chinatax.gov.cn/' },
+  { name: '12366 纳税服务', url: 'https://12366.chinatax.gov.cn/' },
+  { name: '国家法律法规库', url: 'https://flk.npc.gov.cn/' },
+];
+
 // 客户证言
 const testimonials = [
   {
@@ -192,19 +201,15 @@ export default function Home() {
               </Badge>
 
               <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight leading-[1.15]">
-                让成都企业
+                专业铸根基
                 <br />
                 <span className="bg-gradient-to-r from-amber-300 via-orange-400 to-amber-300 bg-clip-text text-transparent">
-                  财税无忧
+                  合规行致远
                 </span>
-                <br />
-                经营更安心
               </h1>
 
               <p className="mt-6 text-lg sm:text-xl text-white/70 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                成都柯洋税务师事务所，专注企业<span className="text-white font-semibold">税务规划</span>、
-                <span className="text-white font-semibold">财税合规</span>与顾问服务，
-                <br className="hidden sm:block" />专业团队，让您的企业行稳致远。
+                成都市柯洋税务师事务所 · 近 30 年财税深耕 · 全周期企业服务 · 亿元级案例背书
               </p>
 
               {/* 核心数字 */}
@@ -484,6 +489,55 @@ export default function Home() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========== 政策法规模块 ========== */}
+      <section className="py-20 sm:py-28 bg-gradient-to-br from-slate-50 to-blue-50/50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <Badge className="mb-4 bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-50">
+              官网重点新增
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+              财税政策 · 官方直达
+            </h2>
+            <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+              同步国家税务总局、财政部最新政策，权威来源、实时更新，助力企业合规经营
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto">
+            {officialLinks.map((link, i) => (
+              <a
+                key={i}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+              >
+                <Card className="h-full border-2 border-slate-100 hover:border-blue-200 hover:shadow-lg transition-all duration-300 rounded-xl overflow-hidden">
+                  <CardContent className="p-5 text-center">
+                    <div className="flex items-center justify-center gap-2">
+                      <span className="font-semibold text-slate-700 group-hover:text-blue-600 transition-colors">
+                        {link.name}
+                      </span>
+                      <ExternalLink className="h-4 w-4 text-slate-400 group-hover:text-blue-500 transition-colors" />
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Button asChild variant="outline" className="border-2 border-blue-200 text-blue-700 hover:bg-blue-50 px-6 py-5 rounded-full">
+              <Link href="/policy">
+                查看更多政策资源
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
