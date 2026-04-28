@@ -147,18 +147,6 @@ export default function Home() {
   return (
     <div className="flex flex-col">
 
-      {/* ========== 顶部资质条 ========== */}
-      <div className="bg-[#1a2744] text-white/80 text-sm">
-        <div className="mx-auto max-w-7xl px-6 py-2.5 flex flex-wrap items-center justify-center gap-4 sm:gap-8">
-          {credentials.map((c, i) => (
-            <span key={i} className="flex items-center gap-1.5 whitespace-nowrap">
-              <CheckCircle2 className="h-3.5 w-3.5 text-amber-400 flex-shrink-0" />
-              {c}
-            </span>
-          ))}
-        </div>
-      </div>
-
       {/* ========== Hero Section ========== */}
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-[#1a2744] to-[#1e3a5f] text-white">
         {/* 装饰光效 */}

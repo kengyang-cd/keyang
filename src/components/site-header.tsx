@@ -18,12 +18,32 @@ const navigation = [
   { name: '联系我们', href: '/contact' },
 ];
 
+import { CheckCircle2 } from 'lucide-react';
+
+const credentials = [
+  '执业注册税务师机构',
+  '涉税专业服务机构',
+  'TSC5 信用等级',
+  '公安备案',
+];
+
 export function SiteHeader() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      {/* 品牌实力条 */}
+      <div className="hidden lg:block bg-[#1a2744] text-white/80 text-xs">
+        <div className="mx-auto max-w-7xl px-6 flex items-center justify-end gap-6 py-1.5">
+          {credentials.map((c, i) => (
+            <span key={i} className="flex items-center gap-1.5 whitespace-nowrap">
+              <CheckCircle2 className="h-3 w-3 text-amber-400 flex-shrink-0" />
+              {c}
+            </span>
+          ))}
+        </div>
+      </div>
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-6 py-3" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1 flex items-center gap-2">
