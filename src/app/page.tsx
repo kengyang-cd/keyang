@@ -24,6 +24,9 @@ import {
   ClipboardCheck,
   TrendingDown,
   DollarSign,
+  Calculator,
+  Settings,
+  HelpCircle,
 } from 'lucide-react';
 
 // 资质背书数据
@@ -425,6 +428,70 @@ export default function Home() {
             <Button asChild variant="outline" className="border-2 border-blue-200 text-blue-700 hover:bg-blue-50 px-6 py-5 rounded-full">
               <Link href="/policy">
                 查看更多政策资源
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== 常见问题 FAQ ========== */}
+      <section className="py-20 sm:py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <Badge className="mb-4 bg-indigo-50 text-indigo-700 border border-indigo-200 hover:bg-indigo-50">
+              <Search className="h-3.5 w-3.5 mr-1.5 inline" />
+              常见问题
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+              您关心的问题，答案都在这里
+            </h2>
+            <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+              整理了企业主最常问的20个问题，涵盖注册公司、代理记账、税务规划等
+            </p>
+          </div>
+
+          {/* FAQ 分类预览 */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
+            {[
+              { name: '基础认知类', count: 5, icon: Building2, color: 'bg-blue-50 text-blue-600' },
+              { name: '小规模纳税人', count: 5, icon: Calculator, color: 'bg-emerald-50 text-emerald-600' },
+              { name: '一般纳税人', count: 4, icon: FileText, color: 'bg-purple-50 text-purple-600' },
+              { name: '特殊场景', count: 4, icon: Settings, color: 'bg-orange-50 text-orange-600' },
+              { name: '选服务商', count: 2, icon: HelpCircle, color: 'bg-indigo-50 text-indigo-600' },
+            ].map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <div key={i} className={`p-4 rounded-xl ${item.color} text-center`}>
+                  <Icon className="h-6 w-6 mx-auto mb-2 opacity-80" />
+                  <p className="font-medium text-sm">{item.name}</p>
+                  <p className="text-xs opacity-70 mt-1">{item.count} 个问题</p>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* 热门问答 */}
+          <div className="grid gap-3 max-w-3xl mx-auto mb-8">
+            {[
+              { q: '成都注册公司需要多长时间？', a: '正常流程7-15个工作日，柯洋代办最快3-5个工作日' },
+              { q: '小规模和一般纳税人有什么区别？', a: '主要区别在税率、申报周期和进项抵扣，柯洋提供免费评估' },
+              { q: '成都注册公司需要多少钱？', a: '注册+首月代理记账980元起，含执照、公章、财务章' },
+              { q: '电商卖家需要了解哪些税务风险？', a: '隐匿收入、成本票缺失、私户发薪、刷单等风险' },
+            ].map((item, i) => (
+              <Card key={i} className="border border-slate-100 hover:border-indigo-200 hover:shadow-md transition-all">
+                <CardContent className="p-4">
+                  <p className="font-medium text-slate-900 text-sm mb-1">{item.q}</p>
+                  <p className="text-slate-500 text-xs">{item.a}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Button asChild className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-5 rounded-full text-sm font-medium shadow-lg shadow-indigo-500/20">
+              <Link href="/faq">
+                查看全部20个问题
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

@@ -13,6 +13,7 @@ const navigation = [
   { name: '行业解决方案', href: '/solutions' },
   { name: '标杆案例', href: '/cases' },
   { name: '政策法规', href: '/policy' },
+  { name: '常见问题', href: '/faq' },
   { name: '专家团队', href: '/team' },
   { name: '联系我们', href: '/contact' },
 ];
