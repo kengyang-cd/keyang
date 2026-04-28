@@ -6,10 +6,10 @@ export function SiteFooter() {
   return (
     <footer className="border-t bg-muted/50">
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-5">
           <div>
             <h3 className="text-sm font-semibold text-foreground">快速链接</h3>
-            <ul role="list" className="mt-4 space-y-3">
+            <ul role="list" className="mt-3 space-y-2">
               <li>
                 <Link href="/" className="text-sm text-muted-foreground hover:text-primary">
                   首页
@@ -34,7 +34,7 @@ export function SiteFooter() {
           </div>
           <div>
             <h3 className="text-sm font-semibold text-foreground">更多内容</h3>
-            <ul role="list" className="mt-4 space-y-3">
+            <ul role="list" className="mt-3 space-y-2">
               <li>
                 <Link href="/cases" className="text-sm text-muted-foreground hover:text-primary">
                   标杆案例
@@ -59,7 +59,7 @@ export function SiteFooter() {
           </div>
           <div>
             <h3 className="text-sm font-semibold text-foreground">服务项目</h3>
-            <ul role="list" className="mt-4 space-y-3">
+            <ul role="list" className="mt-3 space-y-2">
               <li>
                 <Link href="/services" className="text-sm text-muted-foreground hover:text-primary">
                   企业税务规划
@@ -84,7 +84,7 @@ export function SiteFooter() {
           </div>
           <div>
             <h3 className="text-sm font-semibold text-foreground">联系方式</h3>
-            <ul role="list" className="mt-4 space-y-3">
+            <ul role="list" className="mt-3 space-y-2">
               <li className="flex items-start gap-2">
                 <Phone className="h-4 w-4 mt-0.5 text-muted-foreground" />
                 <div className="text-sm text-muted-foreground">
@@ -101,22 +101,22 @@ export function SiteFooter() {
                 <MapPin className="h-4 w-4 mt-0.5 text-muted-foreground" />
                 <span className="text-sm text-muted-foreground">成都市高新区环球中心E5区9楼915号</span>
               </li>
-              <li className="flex items-start gap-2">
-                <div className="relative w-20 h-20 rounded-lg overflow-hidden border border-border">
-                  <Image
-                    src="/douyin/qrcode.jpg"
-                    alt="抖音主页"
-                    width={80}
-                    height={80}
-                    className="object-cover"
-                  />
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  <p>抖音主页</p>
-                  <p className="text-xs text-muted-foreground/70">扫码关注</p>
-                </div>
-              </li>
             </ul>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold text-foreground">关注我们</h3>
+            <div className="mt-3">
+              <div className="relative w-28 h-28 rounded-lg overflow-hidden border border-border">
+                <Image
+                  src="/douyin/qrcode.jpg"
+                  alt="抖音主页"
+                  width={112}
+                  height={112}
+                  className="object-cover"
+                />
+              </div>
+              <p className="text-xs text-muted-foreground mt-2">扫码关注抖音</p>
+            </div>
           </div>
         </div>
         <div className="mt-8 border-t border-border pt-8 text-center space-y-2">
