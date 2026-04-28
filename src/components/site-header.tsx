@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 
@@ -18,8 +18,6 @@ const navigation = [
   { name: '联系我们', href: '/contact' },
 ];
 
-import { CheckCircle2 } from 'lucide-react';
-
 const credentials = [
   '执业注册税务师机构',
   '涉税专业服务机构',
@@ -33,26 +31,16 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      {/* 品牌实力条 */}
-      <div className="hidden lg:block bg-[#1a2744] text-white/80 text-xs">
-        <div className="mx-auto max-w-7xl px-6 flex items-center justify-end gap-6 py-1.5">
-          {credentials.map((c, i) => (
-            <span key={i} className="flex items-center gap-1.5 whitespace-nowrap">
-              <CheckCircle2 className="h-3 w-3 text-amber-400 flex-shrink-0" />
-              {c}
-            </span>
-          ))}
-        </div>
-      </div>
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-6 py-3" aria-label="Global">
+      {/* 导航区域 */}
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-6 py-4" aria-label="Global">
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1 flex items-center gap-2">
-            <div className="relative h-9 w-auto">
+          <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
+            <div className="relative h-10 w-auto">
               <Image
                 src="/logo.png"
                 alt="成都市柯洋税务师事务所有限公司"
                 width={200}
-                height={36}
+                height={40}
                 className="object-contain"
                 priority
               />
@@ -88,6 +76,19 @@ export function SiteHeader() {
           </Button>
         </div>
       </nav>
+
+      {/* 品牌实力条 - 底部 */}
+      <div className="hidden lg:block bg-[#1a2744] text-white/80 text-xs">
+        <div className="mx-auto max-w-7xl px-6 flex items-center justify-end gap-6 py-1.5">
+          {credentials.map((c, i) => (
+            <span key={i} className="flex items-center gap-1.5 whitespace-nowrap">
+              <CheckCircle2 className="h-3 w-3 text-amber-400 flex-shrink-0" />
+              {c}
+            </span>
+          ))}
+        </div>
+      </div>
+
       {/* Mobile menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden">
