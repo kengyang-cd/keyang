@@ -43,8 +43,8 @@ export function SiteHeader() {
               src="/company-logo.jpg"
               alt="成都市柯洋税务师事务所有限公司"
               width={180}
-              height={92}
-              className="h-[92px] w-auto object-contain"
+              height={56}
+              className="h-[56px] w-auto object-contain"
               priority
             />
           </Link>
@@ -102,12 +102,12 @@ export function SiteHeader() {
             </div>
           </nav>
 
-          {/* 品牌实力条 - 底部，白底蓝字 */}
-          <div className="hidden lg:block text-[#0066CC] text-xs bg-white">
+          {/* 品牌实力条 - 底部，蓝底白字 */}
+          <div className="hidden lg:block text-white text-xs" style={{ backgroundColor: '#0066CC' }}>
             <div className="mx-auto max-w-7xl px-6 flex items-center justify-end gap-6 py-1.5">
               {credentials.map((c, i) => (
                 <span key={i} className="flex items-center gap-1.5 whitespace-nowrap">
-                  <CheckCircle2 className="h-3 w-3 flex-shrink-0" style={{ color: '#0066CC' }} />
+                  <CheckCircle2 className="h-3 w-3 flex-shrink-0 text-orange-400" />
                   {c}
                 </span>
               ))}
