@@ -69,7 +69,15 @@ export default function ContactPage() {
                         </div>
                         <div>
                           <h3 className="font-semibold text-foreground">{info.title}</h3>
-                          <p className="mt-1 text-base text-foreground">{info.content}</p>
+                          <p className="mt-1 text-base text-foreground">
+                            {info.icon === Phone ? (
+                              <a href={`tel:${info.content.replace(/-/g, '')}`} className="hover:text-primary transition-colors">
+                                {info.content}
+                              </a>
+                            ) : (
+                              info.content
+                            )}
+                          </p>
                           <p className="mt-1 text-sm text-muted-foreground">
                             {info.description}
                           </p>

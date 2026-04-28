@@ -73,13 +73,13 @@ export function SiteHeader() {
                   {item.name}
                 </Link>
               ))}
-              <Link
-                href="/contact"
+              <a
+                href="tel:18980020731"
                 className="ml-4 inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-md transition-all duration-200 hover:scale-105"
                 style={{ background: 'linear-gradient(135deg, #0066CC 0%, #00CC99 100%)' }}
               >
                 咨询孙老师 18980020731
-              </Link>
+              </a>
             </div>
 
             {/* 移动端菜单按钮 */}
@@ -130,14 +130,14 @@ export function SiteHeader() {
                 </Link>
               ))}
               <div className="px-3 pt-2">
-                <Link
-                  href="/contact"
+                <a
+                  href="tel:18980020731"
                   className="block w-full text-center px-4 py-2 text-sm font-medium text-white rounded-md"
                   style={{ background: 'linear-gradient(135deg, #0066CC 0%, #00CC99 100%)' }}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  立即咨询
-                </Link>
+                  立即咨询 18980020731
+                </a>
               </div>
             </div>
           </div>
