@@ -69,6 +69,14 @@ export function SiteHeader() {
               {item.name}
             </Link>
           ))}
+          <a
+            href="https://mp.weixin.qq.com/s/bXk0XCjIBbn30u1jQk1YGQ"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium leading-6 text-green-600 hover:text-green-700 flex items-center gap-1"
+          >
+            关注公众号
+          </a>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Button asChild>
@@ -107,6 +115,15 @@ export function SiteHeader() {
                 {item.name}
               </Link>
             ))}
+            <a
+              href="https://mp.weixin.qq.com/s/bXk0XCjIBbn30u1jQk1YGQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block rounded-md px-3 py-2 text-base font-medium text-green-600 hover:bg-muted"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              关注公众号
+            </a>
             <div className="px-3 pt-2">
               <Button asChild className="w-full">
                 <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>

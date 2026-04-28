@@ -108,18 +108,19 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-foreground">关注我们</h3>
+            <h3 className="text-sm font-semibold text-foreground">关注公众号</h3>
             <div className="mt-3">
               <div className="relative w-28 h-28 rounded-lg overflow-hidden border border-border">
                 <Image
-                  src="/douyin/qrcode.jpg"
-                  alt="抖音主页"
+                  src="/wechat-qr.jpg"
+                  alt="成都市柯洋税务师事务所公众号"
                   width={112}
                   height={112}
                   className="object-cover"
                 />
               </div>
-              <p className="text-xs text-muted-foreground mt-2">扫码关注抖音</p>
+              <p className="text-xs text-muted-foreground mt-2">扫码关注公众号</p>
+              <p className="text-xs text-muted-foreground">获取更多财税干货</p>
             </div>
           </div>
         </div>
