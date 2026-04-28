@@ -39,15 +39,12 @@ export function SiteHeader() {
         {/* 顶部渐变边框 */}
         <div className="absolute top-0 left-0 right-0 h-[2px] z-20" style={{ background: 'linear-gradient(90deg, #0066CC 0%, #00CC99 100%)' }} />
 
-        {/* 品牌实力条 - 全宽，深蓝底，logo会覆盖左侧 */}
+        {/* 品牌实力条 - 全宽，深蓝底，logo会覆盖左侧，无图标 */}
         <div className="h-8" style={{ backgroundColor: '#1a2744' }}>
           <div className="h-full ml-[200px] lg:ml-[220px] flex items-center justify-end pr-6">
             <div className="flex items-center gap-6 text-white text-xs">
               {credentials.map((c, i) => (
-                <span key={i} className="flex items-center gap-1.5 whitespace-nowrap">
-                  <CheckCircle2 className="h-3 w-3 flex-shrink-0 text-orange-400" />
-                  {c}
-                </span>
+                <span key={i} className="whitespace-nowrap">{c}</span>
               ))}
             </div>
           </div>
