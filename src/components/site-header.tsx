@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, CheckCircle2 } from 'lucide-react';
 import { useState } from 'react';
 
 const navigation = [
@@ -106,12 +106,12 @@ export function SiteHeader() {
         </div>
 
         {/* 品牌实力条 - 导航栏下方，始终显示 */}
-        <div className="bg-white border-t" style={{ borderColor: '#E6F3FF' }}>
+        <div style={{ backgroundColor: '#1a2744' }}>
           <div className="max-w-7xl mx-auto px-4 lg:px-6 py-2">
-            <div className="flex items-center justify-center gap-4 sm:gap-6 text-xs text-[#1a2744]">
+            <div className="flex items-center justify-center gap-4 sm:gap-6 text-xs text-white">
               {credentials.map((c, i) => (
                 <span key={i} className="whitespace-nowrap flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: '#0066CC' }} />
+                  <CheckCircle2 className="h-3 w-3 flex-shrink-0 text-orange-400" />
                   {c}
                 </span>
               ))}
