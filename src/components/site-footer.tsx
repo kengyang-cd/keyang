@@ -117,6 +117,21 @@ export function SiteFooter() {
                 <MapPin className="h-4 w-4 mt-0.5 text-muted-foreground" />
                 <span className="text-sm text-muted-foreground">成都市高新区环球中心E5区9楼915号</span>
               </li>
+              <li className="flex items-start gap-2">
+                <div className="relative w-20 h-20 rounded-lg overflow-hidden border border-border">
+                  <Image
+                    src="/douyin/qrcode.jpg"
+                    alt="抖音主页"
+                    width={80}
+                    height={80}
+                    className="object-cover"
+                  />
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  <p>抖音主页</p>
+                  <p className="text-xs text-muted-foreground/70">扫码关注</p>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
