@@ -26,13 +26,13 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-6 py-3" aria-label="Global">
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1 flex items-center gap-2 -mt-1.5">
-            <div className="relative h-7 w-auto">
+          <Link href="/" className="-m-1.5 p-1 flex items-center gap-2 -mt-2">
+            <div className="relative h-5 w-auto">
               <Image
                 src="/logo.png"
                 alt="成都市柯洋税务师事务所有限公司"
-                width={160}
-                height={32}
+                width={120}
+                height={24}
                 className="object-contain"
                 priority
               />
