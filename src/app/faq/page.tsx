@@ -164,7 +164,7 @@ export default function FAQPage() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <div className="min-h-screen bg-slate-50">
       {/* Header */}
       <section className="bg-gradient-to-br from-slate-900 via-[#1a2744] to-[#1e3a5f] text-white py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
@@ -182,13 +182,13 @@ export default function FAQPage() {
             整理了企业主最常问的20个问题，涵盖注册公司、代理记账、税务规划等全流程
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild size="lg" className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white px-8 py-5 rounded-full">
+            <Button asChild size="lg" className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white px-8 py-5 rounded-full shadow-lg">
               <Link href="/contact">
                 <MessageCircle className="h-4 w-4 mr-2" />
                 在线咨询
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-5 rounded-full">
+            <Button asChild variant="outline" size="lg" className="border-2 border-white/30 bg-transparent text-white hover:bg-white/10 px-8 py-5 rounded-full">
               <Link href="tel:18980020731">
                 <Phone className="h-4 w-4 mr-2" />
                 189-8002-0731
@@ -220,7 +220,7 @@ export default function FAQPage() {
       </section>
 
       {/* FAQ Content */}
-      <section className="py-12 sm:py-16">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Sidebar - Category Navigation */}
@@ -335,7 +335,7 @@ export default function FAQPage() {
                 立即咨询
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-6 text-base rounded-full">
+            <Button asChild variant="outline" size="lg" className="border-2 border-white/30 bg-transparent text-white hover:bg-white/10 px-8 py-6 text-base rounded-full">
               <Link href="tel:18980020731">
                 <Phone className="mr-2 h-4 w-4" />
                 孙凤 189-8002-0731
