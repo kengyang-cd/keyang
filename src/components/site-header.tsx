@@ -37,9 +37,6 @@ export function SiteHeader() {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* 顶部渐变边框 */}
-        <div className="absolute top-0 left-0 right-0 h-[2px] z-20" style={{ background: 'linear-gradient(90deg, #0066CC 0%, #00CC99 100%)' }} />
-
         {/* Logo + 公司名称 + 导航区域 */}
         <div className="bg-white shadow-sm">
           <div className="flex items-center justify-between">
@@ -55,8 +52,8 @@ export function SiteHeader() {
                   priority
                 />
                 <div className="hidden sm:flex flex-col justify-center border-l border-gray-200 pl-3">
-                  <span className="text-sm font-semibold tracking-wide" style={{ color: '#1a2744' }}>成都柯洋</span>
-                  <span className="text-xs tracking-wider" style={{ color: '#0066CC' }}>税务师事务所</span>
+                  <span className="text-sm font-semibold tracking-wide text-black">成都柯洋</span>
+                  <span className="text-xs tracking-wider text-black">税务师事务所</span>
                 </div>
               </Link>
             </div>
@@ -70,16 +67,10 @@ export function SiteHeader() {
                   className={`text-sm font-medium transition-colors relative py-1 ${
                     pathname === item.href
                       ? 'text-[#0066CC] font-bold'
-                      : 'text-[#333333] hover:text-[#0066CC]'
+                      : 'text-black hover:text-[#0066CC]'
                   }`}
                 >
                   {item.name}
-                  {pathname === item.href && (
-                    <span
-                      className="absolute bottom-0 left-0 w-full h-0.5"
-                      style={{ background: 'linear-gradient(90deg, #0066CC 0%, #00CC99 100%)' }}
-                    />
-                  )}
                 </Link>
               ))}
               <Link
@@ -118,9 +109,6 @@ export function SiteHeader() {
             </div>
           </div>
         </div>
-
-        {/* 底部渐变边框 */}
-        <div className="absolute bottom-0 left-0 right-0 h-[2px] z-10" style={{ background: 'linear-gradient(90deg, #0066CC 0%, #00CC99 100%)' }} />
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
