@@ -28,7 +28,6 @@ const credentials = [
 export function SiteHeader() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [qrModalOpen, setQrModalOpen] = useState(false);
 
   return (
     <>
@@ -71,12 +70,6 @@ export function SiteHeader() {
                 {item.name}
               </Link>
             ))}
-            <button
-              onClick={() => setQrModalOpen(true)}
-              className="text-sm font-medium leading-6 text-green-600 hover:text-green-700 flex items-center gap-1"
-            >
-              关注公众号
-            </button>
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <Button asChild>
@@ -115,15 +108,6 @@ export function SiteHeader() {
                   {item.name}
                 </Link>
               ))}
-              <button
-                onClick={() => {
-                  setQrModalOpen(true);
-                  setMobileMenuOpen(false);
-                }}
-                className="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-green-600 hover:bg-muted"
-              >
-                关注公众号
-              </button>
               <div className="px-3 pt-2">
                 <Button asChild className="w-full">
                   <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
@@ -135,46 +119,6 @@ export function SiteHeader() {
           </div>
         )}
       </header>
-
-      {/* 公众号二维码弹窗 */}
-      {qrModalOpen && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-4"
-          onClick={() => setQrModalOpen(false)}
-        >
-          <div
-            className="bg-white rounded-xl shadow-2xl p-6 max-w-sm w-full"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-semibold">关注公众号</h3>
-              <button
-                onClick={() => setQrModalOpen(false)}
-                className="p-1 hover:bg-gray-100 rounded-full"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="relative w-48 h-48 rounded-lg overflow-hidden border border-gray-200">
-                <Image
-                  src="/wechat-qr.jpg"
-                  alt="成都市柯洋税务师事务所公众号"
-                  width={192}
-                  height={192}
-                  className="object-cover"
-                />
-              </div>
-              <p className="mt-4 text-center text-sm text-gray-600">
-                扫码关注公众号
-              </p>
-              <p className="text-center text-xs text-gray-500 mt-1">
-                获取更多财税干货、案例解读
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 }
