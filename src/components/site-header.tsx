@@ -31,21 +31,19 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="sticky top-0 z-50 w-full border-b bg-white">
         {/* 导航区域 */}
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-6 py-2" aria-label="Global">
-          <div className="flex lg:flex-1">
-            <Link href="/" className="flex items-center">
-              <div className="relative h-11 w-auto">
-                <Image
-                  src="/company-logo.jpg"
-                  alt="成都市柯洋税务师事务所有限公司"
-                  width={198}
-                  height={44}
-                  className="h-full w-auto object-contain"
-                  priority
-                />
-              </div>
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-6 h-[52px]" aria-label="Global">
+          <div className="flex lg:flex-1 h-full items-center">
+            <Link href="/" className="flex items-center h-full">
+              <Image
+                src="/company-logo.jpg"
+                alt="成都市柯洋税务师事务所有限公司"
+                width={180}
+                height={44}
+                className="h-[44px] w-auto object-contain"
+                priority
+              />
             </Link>
           </div>
           <div className="flex lg:hidden">
