@@ -33,16 +33,16 @@ export function SiteHeader() {
     <>
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         {/* 导航区域 */}
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-6 py-4" aria-label="Global">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-6 py-3" aria-label="Global">
           <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
-              <div className="relative h-10 w-auto">
+              <div className="relative h-9 w-auto">
                 <Image
                   src="/company-logo.jpg"
                   alt="成都市柯洋税务师事务所有限公司"
-                  width={180}
-                  height={40}
-                  className="object-contain"
+                  width={162}
+                  height={36}
+                  className="h-full w-auto object-contain"
                   priority
                 />
               </div>
