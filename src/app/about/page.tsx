@@ -40,10 +40,13 @@ export default function AboutPage() {
             </h2>
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                成都市柯洋税务师事务所由资深财税专家孙凤创立，团队拥有注册税务师、会计师、企业合规师、纳税筹划师、管理会计师等专业资质，深耕财税服务近 30 年，具备公安备案资质。
+                成都市柯洋税务师事务所由资深财税专家孙凤创立，团队拥有注册税务师、会计师、企业合规师、纳税筹划师、管理会计师等专业资质，2018 年高级会计师资格考试合格，深耕财税服务近 30 年，具备公安备案资质。
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mt-6">
-                专注服务于建筑、新消费饮品、文化传媒、律所、电商、制造企业等多领域实体企业，提供从账务规范、税务合规、内部审计到内控搭建、常年顾问的一站式全周期解决方案。
+                事务所专注为建筑工程、新消费饮品、文化传媒、律所、电商、制造企业、矿产能源等多领域实体企业，提供从账务规范、税务合规、内部审计、内控搭建、常年顾问到财税尽调 / 投资风控的一站式全周期财税解决方案。
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mt-6">
+                曾成功为投资方完成内蒙古矿产项目财税尽调，规避上亿规模投资损失，具备亿元级大额投资项目财税尽调实战能力。
               </p>
             </div>
           </div>

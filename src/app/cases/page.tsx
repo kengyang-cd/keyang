@@ -6,10 +6,12 @@ import {
   TrendingUp,
   Building2,
   Film,
-  Award,
+  Search,
   Shield,
   Users,
   ArrowRight,
+  AlertTriangle,
+  DollarSign,
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -65,6 +67,23 @@ const cases = [
     color: 'from-purple-500 to-indigo-600',
     highlight: '字节系全牌照服务商，5 亿+ 营收合规护航',
   },
+  {
+    icon: Search,
+    title: '内蒙古矿产项目财税尽调',
+    industry: '矿产能源',
+    revenue: '规避上亿投资损失',
+    period: '2024年底',
+    challenge: '某投资方计划对内蒙古某矿产项目进行 3.7 亿元大额投资，项目前期已投入 1.1834 亿元，后续仍需投入 2–2.5 亿元。',
+    solution: '组建专项尽调团队，通过跨区域实地走访、原始凭证核查、成本明细穿透、税务合规审查、资金流向追溯等全维度核查，出具正式财税尽调报告。',
+    results: [
+      '发现成本虚增问题',
+      '识别无合规凭证支出',
+      '追溯存疑资金流向',
+      '出具专业尽调报告',
+    ],
+    color: 'from-emerald-500 to-teal-600',
+    highlight: '亿元级投资风险规避，避免上亿损失',
+  },
 ];
 
 export default function CasesPage() {
@@ -80,7 +99,7 @@ export default function CasesPage() {
             <p className="mt-6 text-lg leading-8 text-muted-foreground">
               近 30 年实战经验，亿元级企业服务案例
               <br className="hidden sm:block" />
-              覆盖建筑、新消费、文化传媒等多行业
+              覆盖建筑、新消费、文化传媒、矿产能源等多行业
             </p>
           </div>
         </div>
@@ -111,7 +130,7 @@ export default function CasesPage() {
                         </h3>
                         <div className="space-y-3">
                           <div className="flex items-center gap-2 text-white/90">
-                            <TrendingUp className="h-5 w-5" />
+                            <DollarSign className="h-5 w-5" />
                             <span>{caseItem.revenue}</span>
                           </div>
                           <div className="flex items-center gap-2 text-white/90">

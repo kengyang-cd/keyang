@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Globe } from 'lucide-react';
 
 export function SiteFooter() {
   return (
@@ -100,6 +100,10 @@ export function SiteFooter() {
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-0.5 text-muted-foreground" />
                 <span className="text-sm text-muted-foreground">成都市高新区环球中心E5区9楼915号</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Globe className="h-4 w-4 mt-0.5 text-muted-foreground" />
+                <span className="text-sm text-muted-foreground">www.cdkeyang.com</span>
               </li>
             </ul>
           </div>

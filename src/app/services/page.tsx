@@ -13,6 +13,8 @@ import {
   Building2,
   CheckCircle,
   ArrowRight,
+  ClipboardCheck,
+  TrendingUp,
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -66,10 +68,17 @@ const coreServices = [
     color: 'bg-teal-500',
   },
   {
+    icon: ClipboardCheck,
+    title: '财税尽调 / 投资风控',
+    description: '项目资金穿透核查、成本合规性核验、税务风险识别、资金流向追溯、投资决策支撑报告。',
+    color: 'bg-orange-500',
+    highlight: true,
+  },
+  {
     icon: Users,
     title: '常年财税顾问服务',
     description: '长期陪伴式顾问支持，实时解答企业财税疑问。',
-    color: 'bg-orange-500',
+    color: 'bg-slate-500',
   },
 ];
 
@@ -86,7 +95,7 @@ export default function ServicesPage() {
             <p className="mt-6 text-lg leading-8 text-muted-foreground">
               成都市柯洋税务师事务所专注财税服务近 30 年，围绕企业全生命周期，
               <br className="hidden sm:block" />
-              提供从基础账务到高端规划的一站式专业支持。
+              提供从基础账务到高端规划、亿元级投资风控的一站式专业支持。
             </p>
           </div>
         </div>
@@ -97,10 +106,10 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
-              九大核心服务
+              十大核心服务
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              覆盖企业全生命周期的财税服务需求
+              覆盖企业全生命周期的财税服务需求，含亿元级投资风控
             </p>
           </div>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -109,7 +118,9 @@ export default function ServicesPage() {
               return (
                 <Card
                   key={index}
-                  className="group relative overflow-hidden border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-lg"
+                  className={`group relative overflow-hidden border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-lg ${
+                    service.highlight ? 'border-amber-200 bg-amber-50/50' : ''
+                  }`}
                 >
                   <CardContent className="p-8">
                     <div className={`inline-flex rounded-xl ${service.color} p-4 mb-6`}>
@@ -117,6 +128,9 @@ export default function ServicesPage() {
                     </div>
                     <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                       {service.title}
+                      {service.highlight && (
+                        <span className="ml-2 text-xs bg-amber-500 text-white px-2 py-0.5 rounded-full">新增</span>
+                      )}
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
                       {service.description}
@@ -126,6 +140,47 @@ export default function ServicesPage() {
                 </Card>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Due Diligence Highlight */}
+      <section className="py-20 sm:py-28 bg-gradient-to-br from-amber-50 to-orange-50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-foreground mb-6">
+              财税尽调 / 投资风控
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              针对大额投资项目，提供全方位财税尽调服务，帮您识别风险、规避损失
+            </p>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-10">
+              <div className="bg-white rounded-2xl p-6 shadow-sm">
+                <div className="text-3xl mb-3">🔍</div>
+                <h3 className="font-bold text-foreground mb-2">项目资金穿透</h3>
+                <p className="text-sm text-muted-foreground">对项目资金流向进行全流程追溯核查</p>
+              </div>
+              <div className="bg-white rounded-2xl p-6 shadow-sm">
+                <div className="text-3xl mb-3">📋</div>
+                <h3 className="font-bold text-foreground mb-2">成本合规核验</h3>
+                <p className="text-sm text-muted-foreground">穿透式核查成本明细，识别虚增问题</p>
+              </div>
+              <div className="bg-white rounded-2xl p-6 shadow-sm">
+                <div className="text-3xl mb-3">⚠️</div>
+                <h3 className="font-bold text-foreground mb-2">税务风险识别</h3>
+                <p className="text-sm text-muted-foreground">全面排查税务合规风险点</p>
+              </div>
+              <div className="bg-white rounded-2xl p-6 shadow-sm">
+                <div className="text-3xl mb-3">📊</div>
+                <h3 className="font-bold text-foreground mb-2">决策支撑报告</h3>
+                <p className="text-sm text-muted-foreground">出具专业尽调报告，支撑投资决策</p>
+              </div>
+            </div>
+            <Button asChild size="lg" className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-8 py-6 rounded-full shadow-lg shadow-amber-500/25">
+              <Link href="/contact">
+                立即咨询尽调服务 <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

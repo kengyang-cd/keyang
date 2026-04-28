@@ -10,6 +10,7 @@ import {
   ShoppingCart,
   Factory,
   ArrowRight,
+  Gem,
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -54,6 +55,20 @@ const industries = [
     color: 'from-purple-500 to-indigo-600',
   },
   {
+    icon: Gem,
+    title: '矿产能源行业',
+    description: '专注大额投资项目财税尽调，帮您规避上亿投资损失。',
+    services: [
+      '大额项目财税尽调',
+      '成本穿透核验',
+      '投资风险识别',
+      '资金流向追溯',
+      '合规性审查报告',
+    ],
+    color: 'from-emerald-500 to-teal-600',
+    highlight: true,
+  },
+  {
     icon: Scale,
     title: '律所 / 电商 / 制造等通用行业',
     description: '标准化合规体系搭建，适配多行业企业通用需求。',
@@ -79,9 +94,9 @@ export default function SolutionsPage() {
               行业解决方案
             </h1>
             <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              近 30 年实战经验，覆盖建筑、新消费、文化传媒、律所、电商、制造等
+              近 30 年实战经验，覆盖建筑、新消费、文化传媒、矿产能源、律所、电商、制造等
               <br className="hidden sm:block" />
-              多领域实体企业，提供行业专属财税解决方案。
+              多领域实体企业，提供行业专属财税解决方案，含亿元级投资风控。
             </p>
           </div>
         </div>

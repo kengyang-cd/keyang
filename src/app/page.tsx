@@ -20,6 +20,10 @@ import {
   Users,
   Briefcase,
   ExternalLink,
+  Search,
+  ClipboardCheck,
+  TrendingDown,
+  DollarSign,
 } from 'lucide-react';
 
 // 资质背书数据
@@ -28,65 +32,8 @@ const credentials = [
   '涉税专业服务机构',
   'TSC5 信用等级',
   '公安备案',
-];
-
-// 团队成员数据
-const teamMembers = [
-  {
-    name: '孙凤',
-    role: '创始人',
-    title: '执业注册税务师 · 会计师 · 合规师',
-    highlight: '近30年实战经验',
-    description: '深耕财税领域近30年，累计服务企业上千家，擅长解决企业关键难题',
-    specialties: ['疑难账务清理', '税务稽查应对', '股权架构优化'],
-    image: '/team/孙凤.png',
-    color: 'bg-blue-50 border-blue-100',
-    textColor: 'text-blue-700',
-  },
-  {
-    name: '丁汝彬',
-    role: '联合创始人',
-    title: '执业注册税务师 · 会计师 · AI商业培训导师',
-    highlight: '懂税的股权架构师',
-    description: '20余年深耕财税领域，帮助企业解决钱留不住、做不大、增长没方法的问题',
-    specialties: ['股权架构', '企业增长', 'AI赋能'],
-    image: '/team/丁汝彬.png',
-    color: 'bg-amber-50 border-amber-100',
-    textColor: 'text-amber-700',
-  },
-  {
-    name: '马晓兰',
-    role: '财税顾问',
-    title: '执业注册税务师 · 会计师',
-    highlight: '12年大型企业经验',
-    description: '曾任大型民营企业财务经理，熟悉税务申报及财税合规全流程',
-    specialties: ['财务核算', '税务申报', '风险控制'],
-    image: '/team/马晓兰.png',
-    color: 'bg-slate-50 border-slate-100',
-    textColor: 'text-slate-700',
-  },
-  {
-    name: '郑琴',
-    role: '财税顾问',
-    title: '执业注册税务师 · 会计师',
-    highlight: '专注中小企业',
-    description: '7年专注服务中小企业，逻辑清晰、沟通顺畅，能快速定位财税问题',
-    specialties: ['账务处理', '税务合规', '合规咨询'],
-    image: '/team/郑琴.png',
-    color: 'bg-emerald-50 border-emerald-100',
-    textColor: 'text-emerald-700',
-  },
-  {
-    name: '袁媛',
-    role: '财税顾问',
-    title: '执业注册税务师 · 会计师',
-    highlight: '财税合规优化专家',
-    description: '8年经验，擅长将财税管理与企业经营深度融合，提供可落地方案',
-    specialties: ['内控体系', '预算管理', '合规优化'],
-    image: '/team/袁媛.png',
-    color: 'bg-purple-50 border-purple-100',
-    textColor: 'text-purple-700',
-  },
+  '服务企业1000+',
+  '亿元级投资风险规避案例',
 ];
 
 // 核心优势
@@ -94,31 +41,31 @@ const advantages = [
   {
     icon: Award,
     title: '持证专业团队',
-    description: '核心成员均为注册税务师、会计师，不是普通代账会计',
+    description: '核心成员均为注册税务师、会计师，创始人孙凤亲自带队实战',
     color: 'from-blue-500 to-indigo-600',
     bg: 'bg-blue-50',
     iconBg: 'bg-blue-100',
   },
   {
-    icon: Clock,
-    title: '服务稳定可靠',
-    description: '专注企业财税服务，不跑路、不断档',
-    color: 'from-slate-600 to-slate-700',
-    bg: 'bg-slate-50',
-    iconBg: 'bg-slate-100',
-  },
-  {
     icon: ShieldCheck,
     title: '合规有保障',
-    description: '帮助企业提前排雷，远离税务风险和稽查风险',
+    description: '帮助企业提前排雷，全流程合规闭环，长期护航零税务风险',
     color: 'from-amber-500 to-orange-500',
     bg: 'bg-amber-50',
     iconBg: 'bg-amber-100',
   },
   {
+    icon: DollarSign,
+    title: '大额投资风控',
+    description: '亿元级企业服务与投资风控双重经验，多行业标杆案例',
+    color: 'from-emerald-500 to-teal-500',
+    bg: 'bg-emerald-50',
+    iconBg: 'bg-emerald-100',
+  },
+  {
     icon: Heart,
-    title: '服务有温度',
-    description: '不只是做账，更是您可以信赖的财税顾问',
+    title: '长期陪伴式服务',
+    description: '不只是做账，更是您可以信赖的财税顾问，适配企业全生命周期',
     color: 'from-rose-500 to-pink-500',
     bg: 'bg-rose-50',
     iconBg: 'bg-rose-100',
@@ -130,9 +77,45 @@ const services = [
   { icon: FileText, title: '工商注册', description: '公司设立、变更、注销，一站式服务', color: 'bg-blue-50 text-blue-600', hoverColor: 'group-hover:bg-blue-100' },
   { icon: Building2, title: '代理记账', description: '专业会计团队，账务清晰、申报准时', color: 'bg-indigo-50 text-indigo-600', hoverColor: 'group-hover:bg-indigo-100' },
   { icon: TrendingUp, title: '税务规划', description: '合法合规，帮您省下该省的钱', color: 'bg-amber-50 text-amber-600', hoverColor: 'group-hover:bg-amber-100' },
-  { icon: Zap, title: '财税咨询', description: '随时答疑，有问题随时问', color: 'bg-orange-50 text-orange-600', hoverColor: 'group-hover:bg-orange-100' },
   { icon: ShieldCheck, title: '财税合规', description: '专业保障，让企业远离风险', color: 'bg-emerald-50 text-emerald-600', hoverColor: 'group-hover:bg-emerald-100' },
+  { icon: ClipboardCheck, title: '财税尽调', description: '投资风控・成本核验・风险识别', color: 'bg-orange-50 text-orange-600', hoverColor: 'group-hover:bg-orange-100' },
   { icon: CheckCircle2, title: '历史账清理', description: '梳理乱账旧账，让账目清晰合规', color: 'bg-slate-50 text-slate-600', hoverColor: 'group-hover:bg-slate-100' },
+];
+
+// 标杆案例
+const cases = [
+  {
+    title: '新消费饮品集团企业',
+    subtitle: '15家子公司规范・集团财税搭建・融资合规支撑・营收破亿',
+    tags: ['集团化运营', '融资尽调', '全周期服务'],
+    color: 'bg-blue-50 border-blue-100',
+    accent: 'text-blue-600',
+    bgGradient: 'from-blue-500/10 to-indigo-500/10',
+  },
+  {
+    title: '建筑工程实体企业',
+    subtitle: '15年零风险・资质维护・汇算鉴证・2亿营收稳健运营',
+    tags: ['建筑行业', '资质维护', '零稽查'],
+    color: 'bg-amber-50 border-amber-100',
+    accent: 'text-amber-600',
+    bgGradient: 'from-amber-500/10 to-orange-500/10',
+  },
+  {
+    title: '文化传媒数字营销集团',
+    subtitle: '4年全周期审计・5亿+营收合规・内控体系搭建・字节系资质支撑',
+    tags: ['传媒行业', '内部审计', '亿级营收'],
+    color: 'bg-emerald-50 border-emerald-100',
+    accent: 'text-emerald-600',
+    bgGradient: 'from-emerald-500/10 to-teal-500/10',
+  },
+  {
+    title: '内蒙古矿产项目财税尽调',
+    subtitle: '跨区域实地核查・穿透式成本核验・规避上亿投资损失',
+    tags: ['矿产能源', '投资尽调', '风险规避'],
+    color: 'bg-rose-50 border-rose-100',
+    accent: 'text-rose-600',
+    bgGradient: 'from-rose-500/10 to-pink-500/10',
+  },
 ];
 
 // 官方链接数据
@@ -163,7 +146,7 @@ export default function Home() {
             <div className="text-center lg:text-left">
               <Badge className="mb-6 bg-white/10 text-amber-300 border border-amber-400/30 hover:bg-white/15 px-4 py-1.5 text-sm backdrop-blur-sm">
                 <Star className="h-3.5 w-3.5 mr-1.5 inline" />
-                成都12年本土品牌 · 服务企业1000+
+                近30年财税深耕 · 亿元级风险管控案例
               </Badge>
 
               <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight leading-[1.15]">
@@ -175,15 +158,15 @@ export default function Home() {
               </h1>
 
               <p className="mt-6 text-lg sm:text-xl text-white/70 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                成都市柯洋税务师事务所 · 近 30 年财税深耕 · 全周期企业服务 · 亿元级案例背书
+                成都市柯洋税务师事务所 · 近30年财税深耕 · 全周期企业服务 · 亿元级风险管控案例背书
               </p>
 
               {/* 核心数字 */}
               <div className="mt-10 flex flex-wrap justify-center lg:justify-start gap-8 sm:gap-12">
                 {[
-                  { num: '12年', label: '深耕行业' },
+                  { num: '30年', label: '深耕行业' },
                   { num: '1000+', label: '服务企业' },
-                  { num: '持证', label: '专业团队' },
+                  { num: '亿元级', label: '风控案例' },
                 ].map((item, i) => (
                   <div key={i} className="text-center">
                     <p className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">{item.num}</p>
@@ -201,8 +184,8 @@ export default function Home() {
                   </Link>
                 </Button>
                 <Button asChild size="lg" className="bg-white/10 hover:bg-white/20 border-2 border-white/30 text-white px-8 py-6 text-base rounded-full w-full sm:w-auto backdrop-blur-md transition-all">
-                  <Link href="/services">
-                    了解服务
+                  <Link href="/cases">
+                    查看案例
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
@@ -226,7 +209,7 @@ export default function Home() {
                   </div>
                   <div className="mt-4 pt-4 border-t border-white/10">
                     <div className="flex flex-wrap gap-2">
-                      {['疑难账务', '税务稽查', '股权架构'].map((tag, i) => (
+                      {['疑难账务', '投资尽调', '矿产风控'].map((tag, i) => (
                         <span key={i} className="px-2.5 py-1 bg-white/10 text-white/70 text-xs rounded-full">{tag}</span>
                       ))}
                     </div>
@@ -347,77 +330,55 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== 团队介绍 ========== */}
+      {/* ========== 标杆案例 ========== */}
       <section className="py-20 sm:py-28 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-slate-100 text-slate-700 border border-slate-200 hover:bg-slate-100">
-              认识我们
+            <Badge className="mb-4 bg-rose-50 text-rose-700 border border-rose-200 hover:bg-rose-50">
+              <TrendingUp className="h-3.5 w-3.5 mr-1.5 inline" />
+              标杆案例
             </Badge>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
-              专业的财税团队
+              多行业实战经验
             </h2>
-            <p className="mt-4 text-lg text-slate-600">
-              经验丰富、各有所长，帮您解决各种财税难题
+            <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+              从集团企业到矿产能源，亿元级风险管控实战背书
             </p>
           </div>
 
-          {/* 创始人卡片 - 大尺寸 */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-            {teamMembers.slice(0, 2).map((member, index) => (
-              <Card key={index} className="overflow-hidden border-2 border-slate-100 hover:border-slate-200 transition-all rounded-2xl hover:shadow-lg">
-                <CardContent className="p-7">
-                  <div className="flex flex-col sm:flex-row gap-6">
-                    <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden bg-slate-50 flex-shrink-0 mx-auto sm:mx-0 ring-2 ring-slate-100">
-                      <Image src={member.image} alt={member.name} width={144} height={144} className="w-full h-full object-cover" />
-                    </div>
-                    <div className="flex-1 text-center sm:text-left">
-                      <div className="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-sm font-medium mb-2">
-                        {member.role}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {cases.map((caseItem, index) => (
+              <Link key={index} href="/cases">
+                <Card className={`h-full border-2 ${caseItem.color} hover:shadow-lg transition-all duration-300 rounded-2xl overflow-hidden cursor-pointer group`}>
+                  <CardContent className="p-6">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${caseItem.bgGradient} opacity-50`} />
+                    <div className="relative">
+                      <div className="flex items-center gap-2 mb-3">
+                        <h3 className="text-xl font-bold text-slate-900">{caseItem.title}</h3>
+                        <ArrowRight className="h-5 w-5 text-slate-400 group-hover:text-slate-600 transition-colors" />
                       </div>
-                      <h3 className="text-2xl font-bold text-slate-900">{member.name}</h3>
-                      <p className="text-blue-600 font-medium text-sm mt-0.5">{member.title}</p>
-                      <p className="text-amber-600 text-sm mt-1">{member.highlight}</p>
-                      <p className="text-slate-600 mt-3 text-sm leading-relaxed">{member.description}</p>
-                      <div className="flex flex-wrap justify-center sm:justify-start gap-2 mt-4">
-                        {member.specialties.map((specialty, i) => (
-                          <span key={i} className="px-2.5 py-1 bg-slate-50 text-slate-600 text-xs rounded-full border border-slate-100">
-                            {specialty}
+                      <p className={`${caseItem.accent} text-sm font-medium mb-4`}>{caseItem.subtitle}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {caseItem.tags.map((tag, i) => (
+                          <span key={i} className="px-2.5 py-1 bg-white/80 text-slate-600 text-xs rounded-full border border-slate-200">
+                            {tag}
                           </span>
                         ))}
                       </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
 
-          {/* 其他成员 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {teamMembers.slice(2).map((member, index) => (
-              <Card key={index} className={`overflow-hidden border-2 ${member.color} transition-all rounded-2xl hover:shadow-md`}>
-                <CardContent className="p-6 text-center">
-                  <div className="w-20 h-20 mx-auto rounded-2xl overflow-hidden bg-slate-50 mb-4 ring-2 ring-white">
-                    <Image src={member.image} alt={member.name} width={80} height={80} className="w-full h-full object-cover" />
-                  </div>
-                  <div className="inline-block px-3 py-1 rounded-full bg-white/80 text-slate-700 text-sm font-medium mb-1.5">
-                    {member.role}
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-900">{member.name}</h3>
-                  <p className="text-blue-600 text-sm font-medium mt-0.5">{member.title}</p>
-                  <p className={`${member.textColor} text-sm mt-1`}>{member.highlight}</p>
-                  <p className="text-slate-600 mt-3 text-sm leading-relaxed">{member.description}</p>
-                  <div className="flex flex-wrap justify-center gap-1.5 mt-4">
-                    {member.specialties.map((specialty, i) => (
-                      <span key={i} className="px-2 py-0.5 bg-white/80 text-slate-600 text-xs rounded-full border border-slate-200">
-                        {specialty}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="mt-12 text-center">
+            <Button asChild className="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white px-8 py-5 rounded-full text-sm font-medium shadow-lg shadow-rose-500/20">
+              <Link href="/cases">
+                查看全部案例
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -433,7 +394,7 @@ export default function Home() {
               财税政策 · 官方直达
             </h2>
             <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
-              同步国家税务总局、财政部最新政策，权威来源、实时更新，助力企业合规经营
+              同步国家税务总局最新政策，权威来源、实时更新，助力企业合规经营
             </p>
           </div>
 
