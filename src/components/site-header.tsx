@@ -38,9 +38,9 @@ export function SiteHeader() {
             <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
               <div className="relative h-10 w-auto">
                 <Image
-                  src="/logo.png"
+                  src="/company-logo.jpg"
                   alt="成都市柯洋税务师事务所有限公司"
-                  width={200}
+                  width={180}
                   height={40}
                   className="object-contain"
                   priority
