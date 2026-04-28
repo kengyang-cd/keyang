@@ -108,20 +108,34 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-foreground">关注公众号</h3>
-            <div className="mt-3">
-              <div className="relative w-28 h-28 rounded-lg overflow-hidden border border-border">
-                <Image
-                  src="/wechat-qr.jpg"
-                  alt="成都市柯洋税务师事务所公众号"
-                  width={112}
-                  height={112}
-                  className="object-cover"
-                />
+            <h3 className="text-sm font-semibold text-foreground">关注我们</h3>
+            <div className="mt-3 flex gap-3">
+              <div className="text-center">
+                <div className="relative w-20 h-20 rounded-lg overflow-hidden border border-border">
+                  <Image
+                    src="/wechat-qr.jpg"
+                    alt="成都市柯洋税务师事务所公众号"
+                    width={80}
+                    height={80}
+                    className="object-cover"
+                  />
+                </div>
+                <p className="text-xs text-muted-foreground mt-1.5">公众号</p>
               </div>
-              <p className="text-xs text-muted-foreground mt-2">扫码关注公众号</p>
-              <p className="text-xs text-muted-foreground">获取更多财税干货</p>
+              <div className="text-center">
+                <div className="relative w-20 h-20 rounded-lg overflow-hidden border border-border">
+                  <Image
+                    src="/douyin/qrcode.jpg"
+                    alt="柯洋财税抖音"
+                    width={80}
+                    height={80}
+                    className="object-cover"
+                  />
+                </div>
+                <p className="text-xs text-muted-foreground mt-1.5">抖音</p>
+              </div>
             </div>
+            <p className="text-xs text-muted-foreground mt-2">扫码关注，获取更多财税干货</p>
           </div>
         </div>
         <div className="mt-8 border-t border-border pt-8 text-center space-y-2">
