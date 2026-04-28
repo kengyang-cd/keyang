@@ -21,9 +21,21 @@ const officialLinks = [
     icon: Building,
   },
   {
+    name: '财政部官网',
+    url: 'https://www.mof.gov.cn/',
+    description: '财政部官方网站，权威发布财政政策、法规文件及通知公告',
+    icon: Building,
+  },
+  {
     name: '国家税务总局政策法规库',
     url: 'https://fgk.chinatax.gov.cn/',
     description: '税务政策法规查询平台，支持文件分类检索与精准查找',
+    icon: FileText,
+  },
+  {
+    name: '财政部法规管理系统',
+    url: 'http://fgk.mof.gov.cn/',
+    description: '财政部法规数据库，支持财政法规检索与全文查阅',
     icon: FileText,
   },
   {
@@ -70,7 +82,7 @@ export default function PolicyPage() {
               点击即可跳转至官方平台，获取第一手政策信息
             </p>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {officialLinks.map((link, index) => {
               const Icon = link.icon;
               return (
@@ -105,6 +117,9 @@ export default function PolicyPage() {
               );
             })}
           </div>
+          <p className="text-center text-sm text-muted-foreground mt-8">
+            注：更多政策解读与实战干货，可关注公众号获取
+          </p>
         </div>
       </section>
 

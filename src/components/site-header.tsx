@@ -20,9 +20,9 @@ const navigation = [
 
 const credentials = [
   '执业注册税务师机构',
-  '涉税专业服务机构',
   'TSC5 信用等级',
-  '公安备案',
+  '服务企业1000+',
+  '亿元级投资风险规避案例',
 ];
 
 export function SiteHeader() {
