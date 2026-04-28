@@ -3,7 +3,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import {
-  User,
   Award,
   BookOpen,
   ShieldCheck,
@@ -26,23 +25,18 @@ const teamMembers = [
   {
     name: '孙凤',
     title: '创始人',
-    credentials: '注册税务师',
+    credentials: '执业注册税务师',
     description: '近 30 年财税实战专家，多家亿元级企业特聘财务总监、财税顾问，擅长多行业财税服务与内控体系搭建。',
-    highlight: '亲自带队，全程把控服务质量',
+    highlight: '近30年实战经验，亲自带队',
+    image: '/team/孙凤.png',
   },
   {
     name: '丁汝彬',
-    title: '核心成员',
-    credentials: '专业团队',
-    description: '柯洋核心团队成员，持有注册税务师、会计师等专业资质，实战经验丰富，专注企业财税合规服务。',
-    highlight: '持证上岗，专业可靠',
-  },
-  {
-    name: '孙瑾',
-    title: '核心成员',
-    credentials: '专业团队',
-    description: '柯洋核心团队成员，专注代理记账与税务申报服务，为企业提供规范化、日常化财税支持。',
-    highlight: '规范高效，稳健交付',
+    title: '联合创始人',
+    credentials: '执业注册税务师',
+    description: '懂税的股权架构师，20余年深耕财税领域，帮助企业解决钱留不住、做不大、增长没方法的问题。',
+    highlight: '股权架构设计，企业增长顾问',
+    image: '/team/丁汝彬.png',
   },
 ];
 
@@ -104,26 +98,19 @@ export default function TeamPage() {
               专业、可靠、长期陪伴
             </p>
           </div>
-          <div className="grid gap-8 lg:grid-cols-3">
+          <div className="grid gap-8 lg:grid-cols-2 max-w-4xl mx-auto">
             {teamMembers.map((member, index) => (
               <Card key={index} className="overflow-hidden">
                 <CardContent className="p-0">
                   {/* Avatar Area */}
                   <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-8 flex justify-center">
-                    <div className="relative h-32 w-32">
-                      {member.name === '孙凤' ? (
-                        <Image
-                          src="/team/sunfeng.png"
-                          alt={member.name}
-                          fill
-                          className="object-cover rounded-full ring-4 ring-white shadow-lg"
-                          onError={() => {}}
-                        />
-                      ) : (
-                        <div className="w-full h-full rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center ring-4 ring-white shadow-lg">
-                          <User className="h-16 w-16 text-white" />
-                        </div>
-                      )}
+                    <div className="relative h-40 w-40">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover rounded-full ring-4 ring-white shadow-lg"
+                      />
                     </div>
                   </div>
                   {/* Info */}
