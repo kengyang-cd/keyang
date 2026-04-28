@@ -29,6 +29,7 @@ const teamMembers = [
     description: '近 30 年财税实战专家，多家亿元级企业特聘财务总监、财税顾问，擅长多行业财税服务与内控体系搭建。',
     highlight: '近30年实战经验，亲自带队',
     image: '/team/孙凤.png',
+    featured: true,
   },
   {
     name: '丁汝彬',
@@ -37,6 +38,43 @@ const teamMembers = [
     description: '懂税的股权架构师，20余年深耕财税领域，帮助企业解决钱留不住、做不大、增长没方法的问题。',
     highlight: '股权架构设计，企业增长顾问',
     image: '/team/丁汝彬.png',
+    featured: true,
+  },
+  {
+    name: '孙瑾',
+    title: '财税顾问',
+    credentials: '执业注册税务师',
+    description: '企业增长顾问，专注代理记账与税务申报服务，为企业提供规范化、日常化财税支持。',
+    highlight: '规范高效，稳健交付',
+    image: '/team/孙瑾.jpg',
+    featured: false,
+  },
+  {
+    name: '马晓兰',
+    title: '财税顾问',
+    credentials: '执业注册税务师',
+    description: '12年大型企业经验，曾任大型民营企业财务经理，熟悉税务申报及财税合规全流程。',
+    highlight: '财务核算，风险控制',
+    image: '/team/马晓兰.png',
+    featured: false,
+  },
+  {
+    name: '郑琴',
+    title: '财税顾问',
+    credentials: '执业注册税务师',
+    description: '7年专注服务中小企业，逻辑清晰、沟通顺畅，能快速定位财税问题。',
+    highlight: '账务处理，税务合规',
+    image: '/team/郑琴.png',
+    featured: false,
+  },
+  {
+    name: '袁媛',
+    title: '财税顾问',
+    credentials: '执业注册税务师',
+    description: '8年经验，擅长将财税管理与企业经营深度融合，提供可落地方案。',
+    highlight: '内控体系，合规优化',
+    image: '/team/袁媛.png',
+    featured: false,
   },
 ];
 
@@ -87,22 +125,18 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Team Members */}
+      {/* Team Members - Featured (孙凤 & 丁汝彬) */}
       <section className="py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
-              核心团队
+              核心创始人
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              专业、可靠、长期陪伴
-            </p>
           </div>
           <div className="grid gap-8 lg:grid-cols-2 max-w-4xl mx-auto">
-            {teamMembers.map((member, index) => (
+            {teamMembers.filter(m => m.featured).map((member, index) => (
               <Card key={index} className="overflow-hidden">
                 <CardContent className="p-0">
-                  {/* Avatar Area */}
                   <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-8 flex justify-center">
                     <div className="relative h-40 w-40">
                       <Image
@@ -113,7 +147,6 @@ export default function TeamPage() {
                       />
                     </div>
                   </div>
-                  {/* Info */}
                   <div className="p-6 text-center">
                     <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-3">
                       {member.credentials}
@@ -129,6 +162,44 @@ export default function TeamPage() {
                       <CheckCircle2 className="h-4 w-4" />
                       <span>{member.highlight}</span>
                     </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team Members - Others */}
+      <section className="py-16 sm:py-20 bg-muted/30">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-12">
+            <h2 className="text-2xl font-bold tracking-tight text-foreground">
+              专业团队
+            </h2>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto">
+            {teamMembers.filter(m => !m.featured).map((member, index) => (
+              <Card key={index} className="overflow-hidden">
+                <CardContent className="p-0">
+                  <div className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 flex justify-center">
+                    <div className="relative h-24 w-24">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover rounded-full ring-2 ring-white shadow-md"
+                      />
+                    </div>
+                  </div>
+                  <div className="p-4 text-center">
+                    <h3 className="text-lg font-bold text-foreground mb-1">
+                      {member.name}
+                    </h3>
+                    <p className="text-xs text-muted-foreground mb-2">{member.title}</p>
+                    <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">
+                      {member.description}
+                    </p>
                   </div>
                 </CardContent>
               </Card>
