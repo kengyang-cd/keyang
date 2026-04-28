@@ -32,7 +32,7 @@ export function SiteHeader() {
   return (
     <>
       <header
-        className="sticky top-0 z-50 w-full relative transition-colors duration-200"
+        className="sticky top-0 z-50 w-full relative transition-colors duration-200 bg-white"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -40,7 +40,7 @@ export function SiteHeader() {
         <div className="absolute left-0 top-0 h-full z-10 flex items-center px-4 lg:px-6">
           <Link href="/" className="h-full flex items-center">
             <Image
-              src="/company-logo.png"
+              src="/company-logo.jpg"
               alt="成都市柯洋税务师事务所有限公司"
               width={180}
               height={92}
