@@ -36,8 +36,75 @@ export function SiteHeader() {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Logo - 绝对定位，覆盖整个导航栏+品牌实力条 */}
-        <div className="absolute left-0 top-0 h-full z-10 flex items-center px-4 lg:px-6">
+        {/* 顶部渐变边框 */}
+        <div className="absolute top-0 left-0 right-0 h-[2px] z-20" style={{ background: 'linear-gradient(90deg, #0066CC 0%, #00CC99 100%)' }} />
+
+        {/* 品牌实力条 - 全宽，深蓝底，logo会覆盖左侧 */}
+        <div className="h-8" style={{ backgroundColor: '#1a2744' }}>
+          <div className="h-full ml-[200px] lg:ml-[220px] flex items-center justify-end pr-6">
+            <div className="flex items-center gap-6 text-white text-xs">
+              {credentials.map((c, i) => (
+                <span key={i} className="flex items-center gap-1.5 whitespace-nowrap">
+                  <CheckCircle2 className="h-3 w-3 flex-shrink-0 text-orange-400" />
+                  {c}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* 导航区域 - 白底，高度与logo对齐 */}
+        <nav className="h-14 pl-[200px] lg:pl-[220px] flex items-center justify-between px-4 lg:px-6" aria-label="Global">
+          <div className="flex lg:flex-1 h-full items-center">
+            {/* 移动端菜单按钮 */}
+            <div className="flex lg:hidden mr-auto">
+              <button
+                type="button"
+                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                <span className="sr-only">打开主菜单</span>
+                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            </div>
+          </div>
+          <div className="hidden lg:flex lg:gap-x-6 xl:gap-x-8 items-center">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`text-sm font-medium transition-colors relative py-1 ${
+                  pathname === item.href
+                    ? 'text-[#0066CC] font-bold'
+                    : 'text-[#333333] hover:text-[#0066CC]'
+                }`}
+              >
+                {item.name}
+                {pathname === item.href && (
+                  <span
+                    className="absolute bottom-0 left-0 w-full h-0.5"
+                    style={{ background: 'linear-gradient(90deg, #0066CC 0%, #00CC99 100%)' }}
+                  />
+                )}
+              </Link>
+            ))}
+          </div>
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-md transition-all duration-200 hover:scale-105"
+              style={{ background: 'linear-gradient(135deg, #0066CC 0%, #00CC99 100%)' }}
+            >
+              咨询孙老师 189-8002-0731
+            </Link>
+          </div>
+        </nav>
+
+        {/* 底部渐变边框 */}
+        <div className="absolute bottom-0 left-0 right-0 h-[2px] z-10" style={{ background: 'linear-gradient(90deg, #0066CC 0%, #00CC99 100%)' }} />
+
+        {/* Logo - 绝对定位在品牌实力条上方 */}
+        <div className="absolute left-0 top-0 z-30 flex items-center px-4 lg:px-6" style={{ height: 'calc(2px + 32px + 56px)' }}>
           <Link href="/" className="h-full flex items-center">
             <Image
               src="/company-logo.jpg"
@@ -50,78 +117,10 @@ export function SiteHeader() {
           </Link>
         </div>
 
-        {/* 顶部渐变边框 */}
-        <div className="absolute top-0 left-0 right-0 h-[2px] z-20" style={{ background: 'linear-gradient(90deg, #0066CC 0%, #00CC99 100%)' }} />
-
-        {/* 导航 + 品牌实力条容器 - 偏移给logo留出空间 */}
-        <div className="ml-[220px] lg:ml-[240px]">
-          {/* 导航区域 */}
-          <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-6 h-14" aria-label="Global">
-            <div className="flex lg:flex-1 h-full items-center justify-end pr-4">
-              {/* 移动端菜单按钮 */}
-              <div className="flex lg:hidden">
-                <button
-                  type="button"
-                  className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                >
-                  <span className="sr-only">打开主菜单</span>
-                  {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                </button>
-              </div>
-            </div>
-            <div className="hidden lg:flex lg:gap-x-6 xl:gap-x-8 items-center">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`text-sm font-medium transition-colors relative py-1 ${
-                    pathname === item.href
-                      ? 'text-[#0066CC] font-bold'
-                      : 'text-[#333333] hover:text-[#0066CC]'
-                  }`}
-                >
-                  {item.name}
-                  {pathname === item.href && (
-                    <span
-                      className="absolute bottom-0 left-0 w-full h-0.5"
-                      style={{ background: 'linear-gradient(90deg, #0066CC 0%, #00CC99 100%)' }}
-                    />
-                  )}
-                </Link>
-              ))}
-            </div>
-            <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-md transition-all duration-200 hover:scale-105"
-                style={{ background: 'linear-gradient(135deg, #0066CC 0%, #00CC99 100%)' }}
-              >
-                咨询孙老师 189-8002-0731
-              </Link>
-            </div>
-          </nav>
-
-          {/* 品牌实力条 - 底部，蓝底白字 */}
-          <div className="hidden lg:block text-white text-xs" style={{ backgroundColor: '#0066CC' }}>
-            <div className="mx-auto max-w-7xl px-6 flex items-center justify-end gap-6 py-1.5">
-              {credentials.map((c, i) => (
-                <span key={i} className="flex items-center gap-1.5 whitespace-nowrap">
-                  <CheckCircle2 className="h-3 w-3 flex-shrink-0 text-orange-400" />
-                  {c}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* 底部渐变边框 */}
-        <div className="absolute bottom-0 left-0 right-0 h-[2px] z-10" style={{ background: 'linear-gradient(90deg, #0066CC 0%, #00CC99 100%)' }} />
-
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden" style={{ backgroundColor: 'white' }}>
-            <div className="space-y-1 px-2 pb-3 pt-2" style={{ backgroundColor: isHovered ? '#E6F3FF' : '' }}>
+          <div className="lg:hidden absolute top-full left-0 right-0 z-40" style={{ backgroundColor: 'white' }}>
+            <div className="space-y-1 px-2 pb-3 pt-2 shadow-lg" style={{ backgroundColor: isHovered ? '#E6F3FF' : '' }}>
               {navigation.map((item) => (
                 <Link
                   key={item.name}
