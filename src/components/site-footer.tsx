@@ -7,22 +7,6 @@ export function SiteFooter() {
     <footer className="border-t bg-muted/50">
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
-          <div className="lg:col-span-1">
-            <div className="flex flex-col gap-4">
-              <div className="relative h-16 w-auto">
-                <Image
-                  src="/logo.png"
-                  alt="成都市柯洋税务师事务所有限公司"
-                  width={200}
-                  height={64}
-                  className="object-contain"
-                />
-              </div>
-              <p className="text-sm text-muted-foreground">
-                深耕财税服务近 30 年，提供从账务规范、税务合规到常年顾问的一站式全周期解决方案。
-              </p>
-            </div>
-          </div>
           <div>
             <h3 className="text-sm font-semibold text-foreground">快速链接</h3>
             <ul role="list" className="mt-4 space-y-3">
