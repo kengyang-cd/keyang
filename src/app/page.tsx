@@ -349,7 +349,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {cases.map((caseItem, index) => (
               <Link key={index} href="/cases">
-                <Card className={`h-full border-2 ${caseItem.color} hover:shadow-lg transition-all duration-300 rounded-2xl overflow-hidden cursor-pointer group`}>
+                <Card className={`h-full relative overflow-hidden border-2 ${caseItem.color} hover:shadow-lg transition-all duration-300 rounded-2xl cursor-pointer group`}>
                   <CardContent className="p-6">
                     <div className={`absolute inset-0 bg-gradient-to-br ${caseItem.bgGradient} opacity-50`} />
                     <div className="relative">
