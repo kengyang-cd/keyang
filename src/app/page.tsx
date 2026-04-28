@@ -143,28 +143,6 @@ const officialLinks = [
   { name: '国家法律法规库', url: 'https://flk.npc.gov.cn/' },
 ];
 
-// 客户证言
-const testimonials = [
-  {
-    quote: '合作了2年，账务从来没出过问题，而且税务规划帮我们省了不少冤枉钱。',
-    author: '某电商企业 创始人',
-    industry: '抖音电商',
-    rating: 5,
-  },
-  {
-    quote: '之前找的代账公司跑路了，账目一塌糊涂。柯洋帮我们把历史账全部梳理清楚。',
-    author: '某科技公司 负责人',
-    industry: '软件开发',
-    rating: 5,
-  },
-  {
-    quote: '注册公司的时候朋友推荐过来的，服务专业、响应及时，很放心。',
-    author: '某咨询公司 创始人',
-    industry: '企业咨询',
-    rating: 5,
-  },
-];
-
 export default function Home() {
   return (
     <div className="flex flex-col">
@@ -448,43 +426,6 @@ export default function Home() {
                         {specialty}
                       </span>
                     ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ========== 客户证言 ========== */}
-      <section className="py-20 sm:py-28 bg-gradient-to-br from-slate-900 via-[#1a2744] to-[#1e3a5f] text-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <Badge className="mb-4 bg-white/10 text-amber-300 border border-amber-400/30 hover:bg-white/15 px-4 py-1">
-              <Star className="h-3.5 w-3.5 mr-1.5 inline fill-amber-400" />
-              真实客户评价
-            </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-              客户说好，才是真的好
-            </h2>
-            <p className="mt-4 text-lg text-white/60">
-              来自服务过的企业真实反馈
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((item, i) => (
-              <Card key={i} className="bg-white/10 backdrop-blur-sm border border-white/10 hover:bg-white/[0.13] transition-colors rounded-2xl">
-                <CardContent className="p-6">
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: item.rating }).map((_, j) => (
-                      <Star key={j} className="h-4 w-4 text-amber-400 fill-amber-400" />
-                    ))}
-                  </div>
-                  <p className="text-white/90 text-sm leading-relaxed italic">"{item.quote}"</p>
-                  <div className="mt-4 pt-4 border-t border-white/10">
-                    <p className="text-white font-medium text-sm">{item.author}</p>
-                    <p className="text-white/40 text-xs mt-0.5">{item.industry}</p>
                   </div>
                 </CardContent>
               </Card>
