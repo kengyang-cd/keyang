@@ -70,7 +70,7 @@ export function SiteHeader() {
             </Link>
           ))}
           <a
-            href="https://mp.weixin.qq.com/s/bXk0XCjIBbn30u1jQk1YGQ"
+            href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=DXzIRXa57ibicyllErOYDCvUseocibDPCm2c6vEEmGYhRkFUvGv5By9iapFHDsnmHsRgshO2Vq5AX0esukIruPNKzg&scene=123#wechat_redirect"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm font-medium leading-6 text-green-600 hover:text-green-700 flex items-center gap-1"
@@ -116,7 +116,7 @@ export function SiteHeader() {
               </Link>
             ))}
             <a
-              href="https://mp.weixin.qq.com/s/bXk0XCjIBbn30u1jQk1YGQ"
+              href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=DXzIRXa57ibicyllErOYDCvUseocibDPCm2c6vEEmGYhRkFUvGv5By9iapFHDsnmHsRgshO2Vq5AX0esukIruPNKzg&scene=123#wechat_redirect"
               target="_blank"
               rel="noopener noreferrer"
               className="block rounded-md px-3 py-2 text-base font-medium text-green-600 hover:bg-muted"
