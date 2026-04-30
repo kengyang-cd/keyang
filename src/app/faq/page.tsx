@@ -18,7 +18,7 @@ import {
   ChevronUpDown,
 } from 'lucide-react';
 
-// FAQ 数据 - 5大类20个问题
+// FAQ 数据 - 5大类21个问题
 const faqData = [
   {
     category: '企业财税基础类',
@@ -152,6 +152,96 @@ const colorMap: Record<string, { bg: string; text: string; border: string; icon:
 // 统计总问题数
 const totalQuestions = faqData.reduce((sum, cat) => sum + cat.questions.length, 0);
 
+// FAQ 列表子组件
+function FAQList({
+  activeData,
+  activeCategory,
+  openItems,
+  toggleItem,
+}: {
+  activeData: (typeof faqData)[number];
+  activeCategory: string;
+  openItems: Set<string>;
+  toggleItem: (id: string) => void;
+}) {
+  const Icon = activeData.icon;
+  const colors = colorMap[activeData.color];
+
+  return (
+    <div className="space-y-4">
+      {/* 分类标题（桌面端显示） */}
+      <div className="hidden lg:flex items-center gap-3 p-4 rounded-xl bg-slate-50">
+        <Icon className={`h-6 w-6 ${colors.text}`} />
+        <h2 className="text-lg font-semibold text-slate-900">{activeCategory}</h2>
+        <Badge variant="outline" className={`ml-auto ${colors.border} ${colors.text}`}>
+          {activeData.questions.length} 个问题
+        </Badge>
+      </div>
+
+      {/* 问题卡片 */}
+      <div className="space-y-3">
+        {activeData.questions.map((item, idx) => {
+          const itemId = `${activeCategory}-${idx}`;
+          const isOpen = openItems.has(itemId);
+
+          return (
+            <Card
+              key={idx}
+              className={`border-2 transition-all duration-300 overflow-hidden ${
+                isOpen ? `${colors.border} shadow-md` : 'border-slate-100 hover:border-slate-200'
+              }`}
+            >
+              <button
+                onClick={() => toggleItem(itemId)}
+                className="w-full text-left"
+              >
+                <CardContent className="p-5 sm:p-6 flex items-start gap-4">
+                  <div className={`flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full ${colors.icon} flex items-center justify-center transition-colors duration-300 ${isOpen ? colors.text : ''}`}>
+                    <span className={`text-sm font-semibold ${isOpen ? colors.text : 'text-slate-500'}`}>
+                      {idx + 1}
+                    </span>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className={`text-base sm:text-lg leading-relaxed transition-all duration-300 ${
+                      isOpen ? 'font-bold text-slate-900' : 'font-medium text-slate-800'
+                    }`}>
+                      {item.q}
+                    </h3>
+                  </div>
+                  <div className={`flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
+                    <ChevronDown className={`h-5 w-5 transition-colors duration-300 ${isOpen ? colors.text : 'text-slate-400'}`} />
+                  </div>
+                </CardContent>
+              </button>
+
+              {/* 答案区域 - 平滑展开 */}
+              <div
+                className="transition-all duration-300 ease-in-out overflow-hidden"
+                style={{
+                  maxHeight: isOpen ? 500 : 0,
+                  opacity: isOpen ? 1 : 0,
+                }}
+              >
+                <div className={`px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t ${colors.border}`}>
+                  <div className="pt-4">
+                    <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${colors.bg} ${colors.text} text-xs font-medium mb-3`}>
+                      <CheckCircle2 className="h-3 w-3" />
+                      柯洋财税解答
+                    </div>
+                    <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+                      {item.a}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export default function FAQPage() {
   const [openItems, setOpenItems] = useState<Set<string>>(new Set());
   const [activeCategory, setActiveCategory] = useState<string>(faqData[0].category);
@@ -170,6 +260,8 @@ export default function FAQPage() {
   };
 
   const activeData = faqData.find((cat) => cat.category === activeCategory);
+  const ActiveIcon = activeData?.icon;
+  const activeColors = activeData ? colorMap[activeData.color] : null;
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -239,9 +331,9 @@ export default function FAQPage() {
                 className="w-full flex items-center justify-between px-5 py-4 bg-slate-50 rounded-xl border-2 border-slate-200 text-left"
               >
                 <div className="flex items-center gap-3">
-                  {activeData && (
+                  {ActiveIcon && activeColors && (
                     <>
-                      <activeData.icon className={`h-5 w-5 ${colorMap[activeData.color].text}`} />
+                      <ActiveIcon className={`h-5 w-5 ${activeColors.text}`} />
                       <span className="font-semibold text-slate-900 text-base">{activeCategory}</span>
                     </>
                   )}
@@ -307,83 +399,7 @@ export default function FAQPage() {
 
             {/* FAQ 问答列表 */}
             <div className="flex-1">
-              {activeData && (() => {
-                const Icon = activeData.icon;
-                const colors = colorMap[activeData.color];
-                return (
-                  <div className="space-y-4">
-                    {/* 分类标题（桌面端显示） */}
-                    <div className="hidden lg:flex items-center gap-3 p-4 rounded-xl bg-slate-50">
-                      <Icon className={`h-6 w-6 ${colors.text}`} />
-                      <h2 className="text-lg font-semibold text-slate-900">{activeCategory}</h2>
-                      <Badge variant="outline" className={`ml-auto ${colors.border} ${colors.text}`}>
-                        {activeData.questions.length} 个问题
-                      </Badge>
-                    </div>
-
-                    {/* 问题卡片 */}
-                    <div className="space-y-3">
-                      {activeData.questions.map((item, idx) => {
-                        const itemId = `${activeCategory}-${idx}`;
-                        const isOpen = openItems.has(itemId);
-
-                        return (
-                          <Card
-                            key={idx}
-                            className={`border-2 transition-all duration-300 overflow-hidden ${
-                              isOpen ? `${colors.border} shadow-md` : 'border-slate-100 hover:border-slate-200'
-                            }`}
-                          >
-                            <button
-                              onClick={() => toggleItem(itemId)}
-                              className="w-full text-left"
-                            >
-                              <CardContent className="p-5 sm:p-6 flex items-start gap-4">
-                                <div className={`flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full ${colors.icon} flex items-center justify-center transition-colors duration-300 ${isOpen ? colors.text : ''}`}>
-                                  <span className={`text-sm font-semibold ${isOpen ? colors.text : 'text-slate-500'}`}>
-                                    {idx + 1}
-                                  </span>
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                  <h3 className={`text-base sm:text-lg leading-relaxed transition-all duration-300 ${
-                                    isOpen ? 'font-bold text-slate-900' : 'font-medium text-slate-800'
-                                  }`}>
-                                    {item.q}
-                                  </h3>
-                                </div>
-                                <div className={`flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
-                                  <ChevronDown className={`h-5 w-5 transition-colors duration-300 ${isOpen ? colors.text : 'text-slate-400'}`} />
-                                </div>
-                              </CardContent>
-                            </button>
-
-                            {/* 答案区域 - 平滑展开 */}
-                            <div
-                              className="transition-all duration-300 ease-in-out overflow-hidden"
-                              style={{
-                                maxHeight: isOpen ? 500 : 0,
-                                opacity: isOpen ? 1 : 0,
-                              }}
-                            >
-                              <div className={`px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t ${colors.border}`}>
-                                <div className="pt-4">
-                                  <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${colors.bg} ${colors.text} text-xs font-medium mb-3`}>
-                                    <CheckCircle2 className="h-3 w-3" />
-                                    柯洋财税解答
-                                  </div>
-                                  <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-                                    {item.a}
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </Card>
-                        );
-                      })}
-                    </div>
-                  </div>
-                );
-              })()}
+              {activeData && <FAQList activeData={activeData} activeCategory={activeCategory} openItems={openItems} toggleItem={toggleItem} />}
             </div>
           </div>
         </div>
