@@ -213,8 +213,7 @@ export default function AboutPage() {
             ))}
           </div>
           {/* 第二排：3个居中 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mt-6">
-            <div />
+          <div className="flex flex-wrap justify-center gap-6 mt-6">
             {[
               {
                 src: '/certs/chengxinguoyue.jpg',
@@ -234,7 +233,7 @@ export default function AboutPage() {
             ].map((cert) => (
               <Card
                 key={cert.src}
-                className="border-2 border-primary/20 overflow-hidden group hover:shadow-lg transition-shadow"
+                className="border-2 border-primary/20 overflow-hidden group hover:shadow-lg transition-shadow w-full sm:w-[calc(50%-12px)] xl:w-[calc(25%-18px)]"
               >
                 <div className="relative aspect-[4/3] bg-white overflow-hidden">
                   <Image
