@@ -118,79 +118,103 @@ export default function CasesPage() {
               return (
                 <Card key={index} className="overflow-hidden">
                   <CardContent className="p-0">
-                    <div className="grid lg:grid-cols-5">
-                      {/* Left - Case Info */}
-                      <div className="lg:col-span-2 relative p-8 lg:p-12 text-white overflow-hidden min-h-[320px]">
+                    <div className="grid lg:grid-cols-2">
+                      {/* Left - Case Image */}
+                      <div className="relative min-h-[320px] lg:min-h-[480px]">
                         <Image
                           src={caseItem.image}
                           alt={caseItem.industry}
                           fill
                           className="object-cover"
                         />
-                        <div className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10`} />
-                        <div className="relative z-10">
-                          <div className="flex items-center gap-3 mb-6">
-                            <div className="rounded-xl bg-white/20 backdrop-blur-sm p-3">
-                              <Icon className="h-8 w-8 text-white" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-black/10" />
+                        <div className="absolute bottom-6 left-6 right-6 z-10 lg:hidden">
+                          <div className="flex items-center gap-3 mb-3">
+                            <div className="rounded-xl bg-white/20 backdrop-blur-sm p-2.5">
+                              <Icon className="h-6 w-6 text-white" />
                             </div>
-                            <span className="text-sm font-medium bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
+                            <span className="text-sm font-medium bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white">
                               {caseItem.industry}
                             </span>
                           </div>
-                          <h3 className="text-2xl font-bold mb-4">
+                          <h3 className="text-2xl font-bold text-white">
                             {caseItem.title}
                           </h3>
-                          <div className="space-y-3">
-                            <div className="flex items-center gap-2 text-white/90">
-                              <DollarSign className="h-5 w-5" />
-                              <span>{caseItem.revenue}</span>
-                            </div>
-                            <div className="flex items-center gap-2 text-white/90">
-                              <Users className="h-5 w-5" />
-                              <span>合作周期：{caseItem.period}</span>
-                            </div>
-                          </div>
-                          <div className="mt-8 pt-6 border-t border-white/20">
-                            <p className="text-white/90 font-medium italic">
-                              "{caseItem.highlight}"
-                            </p>
-                          </div>
                         </div>
                       </div>
 
-                      {/* Right - Details */}
-                      <div className="lg:col-span-3 p-8 lg:p-12">
-                        <div className="space-y-8">
+                      {/* Right - All Details */}
+                      <div className="p-8 lg:p-10">
+                        <div className="space-y-6">
+                          {/* Title & Meta (desktop) */}
+                          <div className="hidden lg:block">
+                            <div className="flex items-center gap-3 mb-3">
+                              <div className="rounded-xl bg-primary/10 p-2.5">
+                                <Icon className="h-6 w-6 text-primary" />
+                              </div>
+                              <span className="text-sm font-medium bg-primary/10 px-3 py-1 rounded-full text-primary">
+                                {caseItem.industry}
+                              </span>
+                            </div>
+                            <h3 className="text-2xl font-bold text-foreground">
+                              {caseItem.title}
+                            </h3>
+                          </div>
+
+                          {/* Revenue & Period */}
+                          <div className="flex flex-wrap items-center gap-4">
+                            <div className="flex items-center gap-2 text-foreground">
+                              <DollarSign className="h-5 w-5 text-amber-500" />
+                              <span className="font-semibold">{caseItem.revenue}</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-foreground">
+                              <Users className="h-5 w-5 text-primary" />
+                              <span>合作周期：{caseItem.period}</span>
+                            </div>
+                          </div>
+
+                          {/* Challenge */}
                           <div>
-                            <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
+                            <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">
                               客户挑战
                             </h4>
                             <p className="text-foreground leading-relaxed">
                               {caseItem.challenge}
                             </p>
                           </div>
+
+                          {/* Solution */}
                           <div>
-                            <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
+                            <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">
                               柯洋方案
                             </h4>
                             <p className="text-foreground leading-relaxed">
                               {caseItem.solution}
                             </p>
                           </div>
+
+                          {/* Results */}
                           <div>
-                            <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">
+                            <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
                               服务成果
                             </h4>
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                               {caseItem.results.map((result, i) => (
                                 <div key={i} className="flex items-center gap-3">
-                                  <div className="rounded-full bg-emerald-100 p-1">
+                                  <div className="rounded-full bg-emerald-100 p-1 shrink-0">
                                     <Shield className="h-4 w-4 text-emerald-600" />
                                   </div>
                                   <span className="text-sm text-foreground">{result}</span>
                                 </div>
                               ))}
                             </div>
+                          </div>
+
+                          {/* Highlight */}
+                          <div className="pt-4 border-t border-border">
+                            <p className="text-primary font-medium italic">
+                              "{caseItem.highlight}"
+                            </p>
                           </div>
                         </div>
                       </div>
