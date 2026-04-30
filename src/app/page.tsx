@@ -180,13 +180,13 @@ export default function Home() {
 
               {/* CTA */}
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                <Button asChild size="lg" className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-8 py-6 text-base rounded-full shadow-xl shadow-amber-500/25 font-semibold w-full sm:w-auto">
+                <Button asChild size="lg" className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white hover:text-white px-8 py-6 text-base rounded-full shadow-xl shadow-amber-500/25 font-semibold w-full sm:w-auto">
                   <Link href="/contact">
                     <Phone className="mr-2 h-4 w-4" />
                     立即咨询
                   </Link>
                 </Button>
-                <Button asChild size="lg" className="bg-white/10 hover:bg-white/20 border-2 border-white/30 text-white px-8 py-6 text-base rounded-full w-full sm:w-auto backdrop-blur-md transition-all">
+                <Button asChild size="lg" className="bg-white/10 hover:bg-white/20 border-2 border-white/30 text-white hover:text-white px-8 py-6 text-base rounded-full w-full sm:w-auto backdrop-blur-md transition-colors">
                   <Link href="/cases">
                     查看案例
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -289,7 +289,7 @@ export default function Home() {
           </div>
 
           <div className="mt-12 text-center">
-            <Button asChild className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-5 rounded-full text-sm font-medium shadow-lg shadow-blue-500/20">
+            <Button asChild className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white hover:text-white px-8 py-5 rounded-full text-sm font-medium shadow-lg shadow-blue-500/20">
               <Link href="/services">
                 查看全部服务
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -376,7 +376,7 @@ export default function Home() {
           </div>
 
           <div className="mt-12 text-center">
-            <Button asChild className="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white px-8 py-5 rounded-full text-sm font-medium shadow-lg shadow-rose-500/20">
+            <Button asChild className="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white hover:text-white px-8 py-5 rounded-full text-sm font-medium shadow-lg shadow-rose-500/20">
               <Link href="/cases">
                 查看全部案例
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -489,7 +489,7 @@ export default function Home() {
           </div>
 
           <div className="text-center">
-            <Button asChild className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-5 rounded-full text-sm font-medium shadow-lg shadow-indigo-500/20">
+            <Button asChild className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white hover:text-white px-8 py-5 rounded-full text-sm font-medium shadow-lg shadow-indigo-500/20">
               <Link href="/faq">
                 查看全部21个问题
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -525,13 +525,13 @@ export default function Home() {
           </p>
 
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-6 text-base rounded-full shadow-xl shadow-blue-500/20 font-semibold w-full sm:w-auto">
+            <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white hover:text-white px-10 py-6 text-base rounded-full shadow-xl shadow-blue-500/20 font-semibold w-full sm:w-auto">
               <Link href="/contact">
                 <MessageCircle className="mr-2 h-4 w-4" />
                 在线咨询
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-2 border-slate-200 text-slate-700 hover:bg-slate-50 px-8 py-6 text-base rounded-full w-full sm:w-auto font-medium">
+            <Button asChild variant="outline" size="lg" className="border-2 border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-slate-700 px-8 py-6 text-base rounded-full w-full sm:w-auto font-medium">
               <Link href="tel:18980020731">
                 <Phone className="mr-2 h-4 w-4" />
                 孙凤 189-8002-0731

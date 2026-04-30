@@ -191,7 +191,7 @@ export default function ServicesPage() {
                 <p className="text-sm text-muted-foreground">出具专业尽调报告，支撑投资决策</p>
               </div>
             </div>
-            <Button asChild size="lg" className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-8 py-6 rounded-full shadow-lg shadow-amber-500/25">
+            <Button asChild size="lg" className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white hover:text-white px-8 py-6 rounded-full shadow-lg shadow-amber-500/25">
               <Link href="/contact">
                 立即咨询尽调服务 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>

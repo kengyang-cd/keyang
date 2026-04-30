@@ -74,7 +74,7 @@ export function SiteHeader() {
               ))}
               <a
                 href="tel:18980020731"
-                className="ml-4 inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-md transition-all duration-200 hover:scale-105"
+                className="ml-4 inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-md transition-transform duration-200 hover:scale-105"
                 style={{ background: 'linear-gradient(135deg, #0066CC 0%, #00CC99 100%)' }}
               >
                 咨询孙老师 18980020731
