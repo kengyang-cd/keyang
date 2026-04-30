@@ -127,8 +127,7 @@ export default function CasesPage() {
                           fill
                           className="object-cover"
                         />
-                        <div className={`absolute inset-0 bg-gradient-to-br ${caseItem.color} opacity-75`} />
-                        <div className="absolute inset-0 bg-black/30" />
+                        <div className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10`} />
                         <div className="relative z-10">
                           <div className="flex items-center gap-3 mb-6">
                             <div className="rounded-xl bg-white/20 backdrop-blur-sm p-3">
