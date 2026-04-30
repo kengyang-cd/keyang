@@ -168,17 +168,58 @@ export default function AboutPage() {
               持证经营，权威认证，值得信赖
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {/* 第一排：4个 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
             {[
+              {
+                src: '/certs/tsc5.jpg',
+                title: 'TSC5 级信用等级',
+                desc: '2024年度涉税专业服务机构最高信用等级',
+              },
               {
                 src: '/certs/zhiyeshuiwu.jpg',
                 title: '执业注册税务师机构',
                 desc: '国家税务总局认定执业资质，专业税务服务权威保障',
               },
               {
-                src: '/certs/tsc5.jpg',
-                title: 'TSC5 级信用等级',
-                desc: '2024年度涉税专业服务机构最高信用等级',
+                src: '/certs/chengdudailijizhang.jpg',
+                title: '成都代理记账协会会员',
+                desc: '行业协会正式会员，接受行业自律监管',
+              },
+              {
+                src: '/certs/lishidanwei.jpg',
+                title: '成都中小企业协会理事单位',
+                desc: '获评理事单位，积极助力中小企业发展',
+              },
+            ].map((cert) => (
+              <Card
+                key={cert.src}
+                className="border-2 border-primary/20 overflow-hidden group hover:shadow-lg transition-shadow"
+              >
+                <div className="relative aspect-[4/3] bg-white overflow-hidden">
+                  <Image
+                    src={cert.src}
+                    alt={cert.title}
+                    fill
+                    className="object-contain p-3 group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+                <CardContent className="p-4">
+                  <h3 className="font-bold text-foreground text-sm">{cert.title}</h3>
+                  <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{cert.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          {/* 第二排：3个居中 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mt-6">
+            <div />
+            {[
+              {
+                src: '/certs/chengxinguoyue.jpg',
+                title: '诚信公约签署单位',
+                desc: '成都市代理记账行业协会诚信公约签署单位',
               },
               {
                 src: '/certs/dailijizhang.jpg',
@@ -189,21 +230,6 @@ export default function AboutPage() {
                 src: '/certs/chengshihehuoren.jpg',
                 title: '橙子财税集团城市合伙人',
                 desc: '橙子财税集团授权城市合伙人，深度参与区域财税服务生态建设',
-              },
-              {
-                src: '/certs/lishidanwei.jpg',
-                title: '成都中小企业协会理事单位',
-                desc: '获评理事单位，积极助力中小企业发展',
-              },
-              {
-                src: '/certs/chengdudailijizhang.jpg',
-                title: '成都代理记账协会会员',
-                desc: '行业协会正式会员，接受行业自律监管',
-              },
-              {
-                src: '/certs/chengxinguoyue.jpg',
-                title: '诚信公约签署单位',
-                desc: '成都市代理记账行业协会诚信公约签署单位',
               },
             ].map((cert) => (
               <Card
