@@ -187,8 +187,8 @@ export default function AboutPage() {
               },
               {
                 src: '/certs/chengshihehuoren.jpg',
-                title: '城市合伙人',
-                desc: '行业认可，深度参与区域财税服务生态建设',
+                title: '橙子财税集团城市合伙人',
+                desc: '橙子财税集团授权城市合伙人，深度参与区域财税服务生态建设',
               },
               {
                 src: '/certs/lishidanwei.jpg',
