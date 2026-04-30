@@ -49,50 +49,52 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Info & Form */}
+      {/* Contact Info & Form - 左右布局 */}
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          {/* 在线咨询表单 - 上方 */}
-          <div className="mx-auto max-w-2xl mb-12">
-            <h2 className="text-2xl font-bold tracking-tight text-foreground mb-6 text-center">
-              在线咨询
-            </h2>
-            <ContactForm />
-          </div>
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
+            {/* 左侧 - 联系方式 */}
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight text-foreground mb-6">
+                联系方式
+              </h2>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+                {contactInfo.map((info, index) => {
+                  const Icon = info.icon;
+                  return (
+                    <Card key={index} className="hover:shadow-md transition-shadow">
+                      <CardContent className="flex items-start gap-4 p-5">
+                        <div className="rounded-md bg-primary/10 p-3 flex-shrink-0">
+                          <Icon className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-foreground text-base">{info.title}</h3>
+                          <p className="mt-0.5 text-base text-foreground">
+                            {info.phone ? (
+                              <a href={`tel:${info.phone}`} className="hover:text-primary transition-colors font-medium">
+                                {info.content}
+                              </a>
+                            ) : (
+                              info.content
+                            )}
+                          </p>
+                          <p className="mt-0.5 text-sm text-muted-foreground">
+                            {info.description}
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
+            </div>
 
-          {/* 联系方式 - 下方网格 */}
-          <div className="mx-auto max-w-4xl">
-            <h2 className="text-2xl font-bold tracking-tight text-foreground mb-6 text-center">
-              联系方式
-            </h2>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {contactInfo.map((info, index) => {
-                const Icon = info.icon;
-                return (
-                  <Card key={index} className="hover:shadow-md transition-shadow">
-                    <CardContent className="flex items-start gap-4 p-5">
-                      <div className="rounded-md bg-primary/10 p-3 flex-shrink-0">
-                        <Icon className="h-5 w-5 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground text-base">{info.title}</h3>
-                        <p className="mt-0.5 text-base text-foreground">
-                          {info.phone ? (
-                            <a href={`tel:${info.phone}`} className="hover:text-primary transition-colors font-medium">
-                              {info.content}
-                            </a>
-                          ) : (
-                            info.content
-                          )}
-                        </p>
-                        <p className="mt-0.5 text-sm text-muted-foreground">
-                          {info.description}
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+            {/* 右侧 - 在线咨询表单 */}
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight text-foreground mb-6">
+                在线咨询
+              </h2>
+              <ContactForm />
             </div>
           </div>
         </div>
