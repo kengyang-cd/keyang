@@ -52,7 +52,7 @@ export function SiteHeader() {
                   priority
                 />
                 <div className="hidden sm:flex items-center border-l border-gray-200 pl-3 whitespace-nowrap">
-                  <span className="text-sm font-semibold tracking-wide text-black">成都市柯洋税务师事务所</span>
+                  <span className="text-base font-semibold tracking-wide text-black">成都市柯洋税务师事务所</span>
                 </div>
               </Link>
             </div>
