@@ -133,7 +133,7 @@ export default function ServicesPage() {
             </p>
           </div>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {coreServices.map((service, index) => {
+            {coreServices.slice(0, 6).map((service, index) => {
               const Icon = service.icon;
               return (
                 <Card
@@ -156,6 +156,33 @@ export default function ServicesPage() {
               );
             })}
           </div>
+          {/* 最后一排居中 */}
+          {coreServices.length > 6 && (
+            <div className="flex flex-wrap justify-center gap-8 mt-8">
+              {coreServices.slice(6).map((service, index) => {
+                const Icon = service.icon;
+                return (
+                  <Card
+                    key={index + 6}
+                    className="group relative overflow-hidden border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-lg w-full sm:w-[calc(50%-16px)] lg:w-[calc(33.333%-22px)]"
+                  >
+                    <CardContent className="p-8">
+                      <div className={`inline-flex rounded-xl ${service.color} p-4 mb-6`}>
+                        <Icon className="h-8 w-8 text-white" />
+                      </div>
+                      <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {service.description}
+                      </p>
+                    </CardContent>
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  </Card>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 
