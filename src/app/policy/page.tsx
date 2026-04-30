@@ -27,6 +27,24 @@ const officialLinks = [
     icon: Building,
   },
   {
+    name: '四川省人民政府官网',
+    url: 'https://www.sc.gov.cn/',
+    description: '四川省人民政府门户网站，发布省级政策法规、政务公告',
+    icon: Building,
+  },
+  {
+    name: '国家税务总局四川省税务局官网',
+    url: 'https://sichuan.chinatax.gov.cn/',
+    description: '四川省税务局官方网站，发布本省税务政策、办税指南及通知公告',
+    icon: Building,
+  },
+  {
+    name: '四川省财政厅官网',
+    url: 'https://czt.sc.gov.cn/',
+    description: '四川省财政厅官方网站，发布本省财政政策、资金管理及法规文件',
+    icon: Building,
+  },
+  {
     name: '国家税务总局政策法规库',
     url: 'https://fgk.chinatax.gov.cn/',
     description: '税务政策法规查询平台，支持文件分类检索与精准查找',
@@ -39,16 +57,16 @@ const officialLinks = [
     icon: FileText,
   },
   {
-    name: '12366 纳税服务平台',
-    url: 'https://12366.chinatax.gov.cn/',
-    description: '纳税服务综合平台，提供咨询、查询、办税等一站式服务',
-    icon: Phone,
-  },
-  {
     name: '国家法律法规数据库',
     url: 'https://flk.npc.gov.cn/',
     description: '全国人大常委会法规数据库，覆盖国家法律法规全文检索',
     icon: Scale,
+  },
+  {
+    name: '12366 纳税服务平台',
+    url: 'https://12366.chinatax.gov.cn/',
+    description: '纳税服务综合平台，提供咨询、查询、办税等一站式服务',
+    icon: Phone,
   },
 ];
 
