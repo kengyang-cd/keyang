@@ -65,7 +65,7 @@ async function sendEmailNotification(record: { name: string; phone: string; emai
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: '柯洋财税官网 <noreply@keyang-tax.com>',
+        from: '柯洋税所官网 <noreply@keyang-tax.com>',
         to: '327039492@qq.com',
         subject: '【官网询盘】新客户提交',
         html: `

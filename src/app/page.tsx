@@ -259,7 +259,7 @@ export default function Home() {
       {/* ========== 服务项目 ========== */}
       <section className="py-20 sm:py-28 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <Badge className="mb-4 bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-50">
               全方位服务
             </Badge>
@@ -302,7 +302,7 @@ export default function Home() {
       {/* ========== 核心优势 ========== */}
       <section className="py-20 sm:py-28 bg-gradient-to-br from-slate-50 to-blue-50/50">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <Badge className="mb-4 bg-amber-50 text-amber-700 border border-amber-200 hover:bg-amber-50">
               为什么要选我们
             </Badge>
@@ -336,7 +336,7 @@ export default function Home() {
       {/* ========== 标杆案例 ========== */}
       <section className="py-20 sm:py-28 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <Badge className="mb-4 bg-rose-50 text-rose-700 border border-rose-200 hover:bg-rose-50">
               <TrendingUp className="h-3.5 w-3.5 mr-1.5 inline" />
               标杆案例
@@ -516,7 +516,7 @@ export default function Home() {
             财税问题不用愁
             <br />
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              柯洋财税来帮您
+              柯洋税所来帮您
             </span>
           </h2>
           <p className="mt-6 text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">

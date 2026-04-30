@@ -7,7 +7,6 @@ import {
   ShieldCheck,
   Calculator,
   Trash2,
-  Search,
   BookOpen,
   Users,
   Building2,
@@ -15,6 +14,10 @@ import {
   ArrowRight,
   ClipboardCheck,
   TrendingUp,
+  Network,
+  Flame,
+  BadgeCheck,
+  Sparkles,
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -38,22 +41,16 @@ const coreServices = [
     color: 'bg-purple-500',
   },
   {
-    icon: ShieldCheck,
-    title: '税务合规与风险排查',
-    description: '系统性税务合规体检，识别风险点并提供整改建议。',
-    color: 'bg-amber-500',
-  },
-  {
-    icon: Search,
-    title: '税务合规规划与优惠落地',
-    description: '基于企业实际情况，合法合规规划税务方案，精准落地税收优惠。',
-    color: 'bg-rose-500',
-  },
-  {
     icon: Trash2,
     title: '历史乱账清理与整改',
     description: '梳理历史账务乱象，重建规范化账务体系。',
     color: 'bg-cyan-500',
+  },
+  {
+    icon: ShieldCheck,
+    title: '税务合规规划与风险排查',
+    description: '系统性税务合规体检与风险识别，合法合规规划税务方案，精准落地税收优惠。',
+    color: 'bg-amber-500',
   },
   {
     icon: BookOpen,
@@ -63,16 +60,39 @@ const coreServices = [
   },
   {
     icon: CheckCircle,
-    title: '企业所得税汇算清缴鉴证',
-    description: '专业出具汇算清缴鉴证报告，保障企业税务合规。',
+    title: '涉税鉴证服务',
+    description: '专业出具汇算清缴鉴证及其他涉税鉴证报告，保障企业税务合规。',
     color: 'bg-teal-500',
+  },
+  {
+    icon: Network,
+    title: '股权设计 / 搭建',
+    description: '根据企业架构与发展阶段，设计合理股权结构，优化持股比例与控制权安排。',
+    color: 'bg-sky-500',
+  },
+  {
+    icon: Flame,
+    title: '高企认定',
+    description: '提供高新技术企业认定全流程辅导，助力企业享受税收优惠与政策扶持。',
+    color: 'bg-rose-500',
+  },
+  {
+    icon: BadgeCheck,
+    title: '资质办理',
+    description: '各类行业资质、经营许可申请与维护，保障企业合规运营。',
+    color: 'bg-violet-500',
   },
   {
     icon: ClipboardCheck,
     title: '财税尽调 / 投资风控',
     description: '项目资金穿透核查、成本合规性核验、税务风险识别、资金流向追溯、投资决策支撑报告。',
     color: 'bg-orange-500',
-    highlight: true,
+  },
+  {
+    icon: Sparkles,
+    title: 'AI + GEO 数字化服务',
+    description: '融合人工智能与生成式引擎优化，助力企业财税数字化升级与线上品牌曝光。',
+    color: 'bg-fuchsia-500',
   },
   {
     icon: Users,
@@ -104,9 +124,9 @@ export default function ServicesPage() {
       {/* Core Services Grid */}
       <section className="py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
+          <div className="mx-auto max-w-2xl text-center mb-10">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
-              十大核心服务
+              核心服务
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
               覆盖企业全生命周期的财税服务需求，含亿元级投资风控
@@ -118,9 +138,7 @@ export default function ServicesPage() {
               return (
                 <Card
                   key={index}
-                  className={`group relative overflow-hidden border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-lg ${
-                    service.highlight ? 'border-amber-200 bg-amber-50/50' : ''
-                  }`}
+                  className="group relative overflow-hidden border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-lg"
                 >
                   <CardContent className="p-8">
                     <div className={`inline-flex rounded-xl ${service.color} p-4 mb-6`}>
@@ -128,9 +146,6 @@ export default function ServicesPage() {
                     </div>
                     <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                       {service.title}
-                      {service.highlight && (
-                        <span className="ml-2 text-xs bg-amber-500 text-white px-2 py-0.5 rounded-full">新增</span>
-                      )}
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
                       {service.description}
@@ -194,15 +209,15 @@ export default function ServicesPage() {
             </h2>
             <div className="grid gap-6 sm:grid-cols-3">
               <div className="rounded-2xl bg-white/10 p-6 backdrop-blur">
-                <div className="text-4xl font-bold text-primary mb-2">合规为先</div>
+                <div className="text-4xl font-bold text-amber-400 mb-2">合规为先</div>
                 <p className="text-white/80">合法合规是一切服务的基础</p>
               </div>
               <div className="rounded-2xl bg-white/10 p-6 backdrop-blur">
-                <div className="text-4xl font-bold text-primary mb-2">专业为本</div>
+                <div className="text-4xl font-bold text-amber-400 mb-2">专业为本</div>
                 <p className="text-white/80">持证上岗，实战经验丰富</p>
               </div>
               <div className="rounded-2xl bg-white/10 p-6 backdrop-blur">
-                <div className="text-4xl font-bold text-primary mb-2">长期陪伴</div>
+                <div className="text-4xl font-bold text-amber-400 mb-2">长期陪伴</div>
                 <p className="text-white/80">适配企业全生命周期发展</p>
               </div>
             </div>

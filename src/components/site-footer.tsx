@@ -126,7 +126,7 @@ export function SiteFooter() {
                 <div className="relative w-28 h-28 rounded-lg overflow-hidden border border-border">
                   <Image
                     src="/douyin/qrcode.jpg"
-                    alt="柯洋财税抖音"
+                    alt="柯洋税所抖音"
                     width={112}
                     height={112}
                     className="object-cover"

@@ -138,7 +138,7 @@ export default function PolicyPage() {
                       政策动态实时关注
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      柯洋税务团队实时关注国家税务总局、财政部等官方平台政策动态，
+                      柯洋税所团队实时关注国家税务总局、财政部等官方平台政策动态，
                       为企业提供最新政策解读与合规建议。如需专业政策分析支持，
                       欢迎联系我们。
                     </p>

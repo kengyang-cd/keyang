@@ -51,7 +51,7 @@ export function SiteHeader() {
                   className="h-12 w-auto object-contain"
                   priority
                 />
-                <div className="hidden sm:flex flex-col justify-center border-l border-gray-200 pl-3">
+                <div className="hidden sm:flex flex-col justify-center border-l border-gray-200 pl-3 whitespace-nowrap">
                   <span className="text-sm font-semibold tracking-wide text-black">成都市柯洋</span>
                   <span className="text-xs tracking-wider text-black">税务师事务所</span>
                 </div>

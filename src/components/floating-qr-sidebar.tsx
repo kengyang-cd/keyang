@@ -58,7 +58,7 @@ export function FloatingQRSidebar() {
             <div className="relative w-32 h-32 md:w-40 md:h-40 overflow-hidden">
               <Image
                 src="/douyin/qrcode.jpg"
-                alt="柯洋财税抖音"
+                alt="柯洋税所抖音"
                 width={160}
                 height={160}
                 className="object-cover"

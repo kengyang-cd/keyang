@@ -226,7 +226,7 @@ function FAQList({
                   <div className="pt-4">
                     <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${colors.bg} ${colors.text} text-xs font-medium mb-3`}>
                       <CheckCircle2 className="h-3 w-3" />
-                      柯洋财税解答
+                      柯洋税所解答
                     </div>
                     <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
                       {item.a}

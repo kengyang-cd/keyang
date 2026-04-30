@@ -27,6 +27,14 @@ const industries = [
       '长期税务风险管控',
     ],
     color: 'from-amber-500 to-orange-600',
+    decorativeSvg: (
+      <svg className="absolute right-4 bottom-4 w-32 h-32 opacity-10" viewBox="0 0 100 100" fill="none">
+        <rect x="10" y="40" width="25" height="50" rx="2" stroke="white" strokeWidth="2" />
+        <rect x="40" y="20" width="25" height="70" rx="2" stroke="white" strokeWidth="2" />
+        <rect x="70" y="50" width="20" height="40" rx="2" stroke="white" strokeWidth="2" />
+        <polygon points="5,40 22,15 40,40" stroke="white" strokeWidth="2" fill="none" />
+      </svg>
+    ),
   },
   {
     icon: Coffee,
@@ -40,6 +48,15 @@ const industries = [
       '股权架构优化',
     ],
     color: 'from-pink-500 to-rose-600',
+    decorativeSvg: (
+      <svg className="absolute right-4 bottom-4 w-32 h-32 opacity-10" viewBox="0 0 100 100" fill="none">
+        <circle cx="30" cy="50" r="20" stroke="white" strokeWidth="2" />
+        <circle cx="55" cy="35" r="15" stroke="white" strokeWidth="2" />
+        <circle cx="70" cy="60" r="18" stroke="white" strokeWidth="2" />
+        <line x1="45" y1="42" x2="55" y2="38" stroke="white" strokeWidth="1.5" />
+        <line x1="42" y1="55" x2="58" y2="58" stroke="white" strokeWidth="1.5" />
+      </svg>
+    ),
   },
   {
     icon: Film,
@@ -53,6 +70,13 @@ const industries = [
       '内控制度搭建',
     ],
     color: 'from-purple-500 to-indigo-600',
+    decorativeSvg: (
+      <svg className="absolute right-4 bottom-4 w-32 h-32 opacity-10" viewBox="0 0 100 100" fill="none">
+        <rect x="10" y="20" width="80" height="55" rx="4" stroke="white" strokeWidth="2" />
+        <polygon points="40,35 40,60 60,47.5" fill="white" opacity="0.5" />
+        <circle cx="50" cy="85" r="4" stroke="white" strokeWidth="1.5" />
+      </svg>
+    ),
   },
   {
     icon: Gem,
@@ -66,7 +90,14 @@ const industries = [
       '合规性审查报告',
     ],
     color: 'from-emerald-500 to-teal-600',
-    highlight: true,
+    decorativeSvg: (
+      <svg className="absolute right-4 bottom-4 w-32 h-32 opacity-10" viewBox="0 0 100 100" fill="none">
+        <polygon points="50,10 85,40 75,90 25,90 15,40" stroke="white" strokeWidth="2" fill="none" />
+        <line x1="50" y1="10" x2="50" y2="90" stroke="white" strokeWidth="1" />
+        <line x1="15" y1="40" x2="85" y2="40" stroke="white" strokeWidth="1" />
+        <line x1="25" y1="90" x2="75" y2="90" stroke="white" strokeWidth="1.5" />
+      </svg>
+    ),
   },
   {
     icon: Scale,
@@ -80,6 +111,14 @@ const industries = [
       '常年顾问支持',
     ],
     color: 'from-blue-500 to-cyan-600',
+    decorativeSvg: (
+      <svg className="absolute right-4 bottom-4 w-32 h-32 opacity-10" viewBox="0 0 100 100" fill="none">
+        <rect x="5" y="35" width="90" height="30" rx="3" stroke="white" strokeWidth="2" />
+        <circle cx="50" cy="50" r="12" stroke="white" strokeWidth="2" />
+        <line x1="50" y1="38" x2="50" y2="62" stroke="white" strokeWidth="1.5" />
+        <line x1="38" y1="50" x2="62" y2="50" stroke="white" strokeWidth="1.5" />
+      </svg>
+    ),
   },
 ];
 
@@ -118,7 +157,8 @@ export default function SolutionsPage() {
                 >
                   <CardContent className="p-8 lg:p-12">
                     <div className={`grid gap-8 lg:grid-cols-2 ${isEven ? 'lg:flex-row-reverse' : ''}`}>
-                      <div className={`flex flex-col ${isEven ? 'lg:order-2' : ''}`}>
+                      <div className={`flex flex-col relative overflow-hidden ${isEven ? 'lg:order-2' : ''}`}>
+                        {industry.decorativeSvg}
                         <div className={`inline-flex rounded-2xl bg-gradient-to-br ${industry.color} p-5 w-fit mb-6`}>
                           <Icon className="h-10 w-10 text-white" />
                         </div>
@@ -170,7 +210,7 @@ export default function SolutionsPage() {
               服务行业覆盖
             </h2>
             <p className="text-lg text-white/80 mb-12">
-              除上述四大核心行业外，柯洋税务还服务众多其他行业客户
+              除上述四大核心行业外，柯洋税所同时还服务众多其他行业
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               {[

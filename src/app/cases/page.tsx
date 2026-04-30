@@ -32,6 +32,15 @@ const cases = [
     ],
     color: 'from-pink-500 to-rose-600',
     highlight: '从融资合规到营收破亿，全程零风险',
+    decorativeSvg: (
+      <svg className="absolute right-6 top-6 w-24 h-24 opacity-10" viewBox="0 0 100 100" fill="none">
+        <circle cx="30" cy="50" r="20" stroke="white" strokeWidth="2" />
+        <circle cx="60" cy="35" r="15" stroke="white" strokeWidth="2" />
+        <circle cx="75" cy="60" r="18" stroke="white" strokeWidth="2" />
+        <line x1="45" y1="42" x2="55" y2="38" stroke="white" strokeWidth="1.5" />
+        <line x1="42" y1="58" x2="60" y2="58" stroke="white" strokeWidth="1.5" />
+      </svg>
+    ),
   },
   {
     icon: Building2,
@@ -49,6 +58,14 @@ const cases = [
     ],
     color: 'from-amber-500 to-orange-600',
     highlight: '15 年零风险，服务亿元级建筑企业',
+    decorativeSvg: (
+      <svg className="absolute right-6 top-6 w-24 h-24 opacity-10" viewBox="0 0 100 100" fill="none">
+        <rect x="10" y="40" width="25" height="50" rx="2" stroke="white" strokeWidth="2" />
+        <rect x="40" y="20" width="25" height="70" rx="2" stroke="white" strokeWidth="2" />
+        <rect x="70" y="50" width="20" height="40" rx="2" stroke="white" strokeWidth="2" />
+        <polygon points="5,40 22,15 40,40" stroke="white" strokeWidth="2" fill="none" />
+      </svg>
+    ),
   },
   {
     icon: Film,
@@ -66,6 +83,12 @@ const cases = [
     ],
     color: 'from-purple-500 to-indigo-600',
     highlight: '字节系全牌照服务商，5 亿+ 营收合规护航',
+    decorativeSvg: (
+      <svg className="absolute right-6 top-6 w-24 h-24 opacity-10" viewBox="0 0 100 100" fill="none">
+        <rect x="10" y="20" width="80" height="55" rx="4" stroke="white" strokeWidth="2" />
+        <polygon points="40,35 40,60 60,47.5" fill="white" opacity="0.5" />
+      </svg>
+    ),
   },
   {
     icon: Search,
@@ -83,6 +106,13 @@ const cases = [
     ],
     color: 'from-emerald-500 to-teal-600',
     highlight: '亿元级投资风险规避，避免上亿损失',
+    decorativeSvg: (
+      <svg className="absolute right-6 top-6 w-24 h-24 opacity-10" viewBox="0 0 100 100" fill="none">
+        <polygon points="50,10 85,40 75,90 25,90 15,40" stroke="white" strokeWidth="2" fill="none" />
+        <line x1="50" y1="10" x2="50" y2="90" stroke="white" strokeWidth="1" />
+        <line x1="15" y1="40" x2="85" y2="40" stroke="white" strokeWidth="1" />
+      </svg>
+    ),
   },
 ];
 
@@ -116,7 +146,8 @@ export default function CasesPage() {
                   <CardContent className="p-0">
                     <div className="grid lg:grid-cols-5">
                       {/* Left - Case Info */}
-                      <div className={`lg:col-span-2 bg-gradient-to-br ${caseItem.color} p-8 lg:p-12 text-white`}>
+                      <div className={`lg:col-span-2 bg-gradient-to-br ${caseItem.color} p-8 lg:p-12 text-white relative overflow-hidden`}>
+                        {caseItem.decorativeSvg}
                         <div className="flex items-center gap-3 mb-6">
                           <div className="rounded-xl bg-white/20 p-3">
                             <Icon className="h-8 w-8 text-white" />
@@ -195,19 +226,19 @@ export default function CasesPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div className="text-center">
-              <div className="text-5xl font-bold text-primary mb-2">30+</div>
+              <div className="text-5xl font-bold text-amber-400 mb-2">30+</div>
               <div className="text-white/80">年实战经验</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-bold text-primary mb-2">1000+</div>
+              <div className="text-5xl font-bold text-amber-400 mb-2">1000+</div>
               <div className="text-white/80">服务企业</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-bold text-primary mb-2">5亿+</div>
+              <div className="text-5xl font-bold text-amber-400 mb-2">5亿+</div>
               <div className="text-white/80">服务营收体量</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-bold text-primary mb-2">0</div>
+              <div className="text-5xl font-bold text-amber-400 mb-2">0</div>
               <div className="text-white/80">稽查处罚记录</div>
             </div>
           </div>

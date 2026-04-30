@@ -89,7 +89,7 @@ export default function TeamPage() {
               专家团队
             </h1>
             <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              柯洋税务由资深财税专家孙凤创立，团队持有注册税务师、会计师、企业合规师、
+              柯洋税所由资深财税专家孙凤创立，团队持有注册税务师、会计师、企业合规师、
               <br className="hidden sm:block" />
               纳税筹划师、管理会计师等专业资质，深耕财税服务近 30 年。
             </p>

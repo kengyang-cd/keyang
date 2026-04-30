@@ -62,15 +62,15 @@ export default function AboutPage() {
             </h2>
             <div className="grid gap-6 sm:grid-cols-3">
               <div className="rounded-2xl bg-white/10 p-8 backdrop-blur">
-                <div className="text-4xl font-bold text-primary mb-4">合规为先</div>
+                <div className="text-4xl font-bold text-amber-400 mb-4">合规为先</div>
                 <p className="text-white/80">合法合规是一切服务的基础</p>
               </div>
               <div className="rounded-2xl bg-white/10 p-8 backdrop-blur">
-                <div className="text-4xl font-bold text-primary mb-4">专业为本</div>
+                <div className="text-4xl font-bold text-amber-400 mb-4">专业为本</div>
                 <p className="text-white/80">持证上岗，实战经验丰富</p>
               </div>
               <div className="rounded-2xl bg-white/10 p-8 backdrop-blur">
-                <div className="text-4xl font-bold text-primary mb-4">长期陪伴</div>
+                <div className="text-4xl font-bold text-amber-400 mb-4">长期陪伴</div>
                 <p className="text-white/80">适配企业全生命周期发展</p>
               </div>
             </div>
@@ -81,7 +81,7 @@ export default function AboutPage() {
       {/* Core Strengths */}
       <section className="py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
+          <div className="mx-auto max-w-2xl text-center mb-10">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
               选择柯洋的五大理由
             </h2>
