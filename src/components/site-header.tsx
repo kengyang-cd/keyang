@@ -41,18 +41,18 @@ export function SiteHeader() {
         <div className="bg-white shadow-sm">
           <div className="flex items-center justify-between">
             {/* Logo + 公司名称 */}
-            <div className="flex-shrink-0 z-10 flex items-center pl-4 lg:pl-6">
-              <Link href="/" className="flex items-center gap-3">
+            <div className="min-w-0 z-10 flex items-center pl-4 lg:pl-6 flex-1">
+              <Link href="/" className="flex items-center gap-3 min-w-0">
                 <Image
                   src="/company-logo.jpg"
                   alt="成都市柯洋税务师事务所有限公司"
                   width={160}
                   height={48}
-                  className="h-12 w-auto object-contain"
+                  className="h-12 w-auto object-contain flex-shrink-0"
                   priority
                 />
-                <div className="hidden sm:flex items-center border-l border-gray-200 pl-3 whitespace-nowrap">
-                  <span className="text-base font-semibold tracking-wide text-black">成都市柯洋税务师事务所</span>
+                <div className="hidden sm:flex items-center border-l border-gray-200 pl-3 whitespace-nowrap overflow-hidden">
+                  <span className="text-lg font-bold tracking-wide text-black">成都市柯洋税务师事务所</span>
                 </div>
               </Link>
             </div>
