@@ -447,18 +447,18 @@ export default function Home() {
               您关心的问题，答案都在这里
             </h2>
             <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
-              整理了企业主最常问的20个问题，涵盖注册公司、代理记账、税务规划等
+              整理了企业主最常问的21个问题，涵盖注册公司、代理记账、税务规划等
             </p>
           </div>
 
           {/* FAQ 分类预览 */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
             {[
-              { name: '基础认知类', count: 5, icon: Building2, color: 'bg-blue-50 text-blue-600' },
-              { name: '小规模纳税人', count: 5, icon: Calculator, color: 'bg-emerald-50 text-emerald-600' },
+              { name: '企业财税基础类', count: 4, icon: Building2, color: 'bg-blue-50 text-blue-600' },
+              { name: '小规模纳税人', count: 4, icon: Calculator, color: 'bg-emerald-50 text-emerald-600' },
               { name: '一般纳税人', count: 4, icon: FileText, color: 'bg-purple-50 text-purple-600' },
-              { name: '特殊场景', count: 4, icon: Settings, color: 'bg-orange-50 text-orange-600' },
-              { name: '选服务商', count: 2, icon: HelpCircle, color: 'bg-indigo-50 text-indigo-600' },
+              { name: '特殊行业财税', count: 5, icon: Settings, color: 'bg-orange-50 text-orange-600' },
+              { name: '选服务机构', count: 4, icon: HelpCircle, color: 'bg-indigo-50 text-indigo-600' },
             ].map((item, i) => {
               const Icon = item.icon;
               return (
@@ -474,10 +474,10 @@ export default function Home() {
           {/* 热门问答 */}
           <div className="grid gap-3 max-w-3xl mx-auto mb-8">
             {[
-              { q: '成都注册公司需要多长时间？', a: '正常流程7-15个工作日，柯洋代办最快3-5个工作日' },
-              { q: '小规模和一般纳税人有什么区别？', a: '主要区别在税率、申报周期和进项抵扣，柯洋提供免费评估' },
-              { q: '成都注册公司需要多少钱？', a: '注册+首月代理记账980元起，含执照、公章、财务章' },
-              { q: '电商卖家需要了解哪些税务风险？', a: '隐匿收入、成本票缺失、私户发薪、刷单等风险' },
+              { q: '新公司成立后，财税方面需要做哪些基础工作？', a: '及时办理税务登记、银行账户备案、税种核定，按期完成纳税申报' },
+              { q: '小规模和一般纳税人有什么区别？', a: '主要根据客户类型、进项发票、行业税负综合判断' },
+              { q: '企业长期零申报有什么风险？', a: '易被列为异常监控对象，影响纳税信用等级' },
+              { q: '大额投资前为什么要做财税尽调？', a: '提前识别隐性负债、税务风险，避免重大损失' },
             ].map((item, i) => (
               <Card key={i} className="border border-slate-100 hover:border-indigo-200 hover:shadow-md transition-all">
                 <CardContent className="p-4">
@@ -491,7 +491,7 @@ export default function Home() {
           <div className="text-center">
             <Button asChild className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-5 rounded-full text-sm font-medium shadow-lg shadow-indigo-500/20">
               <Link href="/faq">
-                查看全部20个问题
+                查看全部21个问题
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   ChevronDown,
-  ChevronUp,
   Building2,
   Calculator,
   FileText,
@@ -16,135 +15,147 @@ import {
   CheckCircle2,
   Phone,
   MessageCircle,
-  ArrowRight,
-  X,
+  ChevronUpDown,
 } from 'lucide-react';
 
-// FAQ 数据
-const faqData = {
-  '一、基础认知类': {
+// FAQ 数据 - 5大类20个问题
+const faqData = [
+  {
+    category: '企业财税基础类',
     icon: Building2,
     color: 'blue',
     questions: [
       {
-        q: 'Q1：成都注册公司需要多长时间？',
-        a: '正常流程：7–15个工作日完成全部注册手续。\n\n• 核名：1–3个工作日\n• 提交资料：3–5个工作日\n• 领取执照+刻章：1–2个工作日\n• 银行开户：3–5个工作日\n• 税务登记：1–2个工作日\n\n**柯洋服务**：全程代办，最快3–5个工作日可拿营业执照，加急可进一步缩短时间。',
+        q: '新公司成立后，财税方面需要做哪些基础工作？',
+        a: '新公司完成工商注册后，需及时办理税务登记、银行账户备案、税种核定，并按规定建立会计账簿，按期完成纳税申报，避免逾期产生风险。',
       },
       {
-        q: 'Q2：成都注册公司需要准备哪些材料？',
-        a: '| 材料 | 说明 |\n| ---- | ---- |\n| 股东身份证 | 全体股东身份证正反面 |\n| 注册地址证明 | 房产证+租赁合同（自有房产只需房产证） |\n| 公司名称 | 准备3–5个备选名称，提高核名通过率 |\n| 注册资本 | 实行认缴制，无需实缴 |\n| 经营范围 | 根据实际业务填写，可参考同行 |\n\n注意：成都部分区域（如高新区）对外地身份证有额外要求，建议先咨询。',
+        q: '企业注册地址在财税上有哪些注意事项？',
+        a: '注册地址需真实可联系，避免虚拟地址、异常地址导致税务核查风险；部分区域有行业限制与税源管理要求，需提前确认合规性。',
       },
       {
-        q: 'Q3：成都注册公司需要多少钱？（对标全网同行）',
-        a: '| 项目 | 费用 |\n| ---- | ---- |\n| 工商注册 | 0元（官方取消收费） |\n| 刻章（公章/财务章/法人章） | 200–500元（全套3枚，不含合同章） |\n| 银行开户 | 0–500元（部分银行免费） |\n| 注册地址 | 800–3000元/年（合规集群/挂靠） |\n| 代理记账 | 小规模200元起/月 |\n\n**柯洋套餐**：注册+首月代理记账980元起，含执照、公章、财务章、税务登记，无隐形收费。',
+        q: '新办企业如何选择小规模纳税人或一般纳税人？',
+        a: '主要根据客户类型、进项发票取得情况、行业税负水平综合判断。小规模纳税人征收率低、申报简单；一般纳税人可抵扣进项，适合规模较大、上下游规范的企业。',
       },
       {
-        q: 'Q4：成都公司注册地址怎么选？',
-        a: '| 地址类型 | 优点 | 适合人群 |\n| ---- | ---- | ---- |\n| 实际办公地址 | 合规、可经营 | 有实体办公 |\n| 集群注册地址 | 费用低、办理快 | 电商、初创 |\n| 挂靠地址 | 性价比高 | 多数初创公司 |\n\n建议：高新区、天府新区政策优惠大，优先考虑。\n\n柯洋提供合规备案集群地址，最低99元/月，可核验、可签收。',
-      },
-      {
-        q: 'Q5：什么是代理记账？中小企业为什么要找代理记账？',
-        a: '代理记账：将企业的会计核算、记账、报税等工作委托给专业财税机构。\n\n**4大理由：**\n\n1. **省钱**：小规模纳税人代账服务200元/月起，比专职会计节省90%以上人力成本，同时享受注册税务师、会计师、合规师三重把关的专业服务。\n\n2. **省心**：专业团队处理账务与报税，避免错报、漏报、迟报导致的罚款与信用风险。\n\n3. **合规**：紧跟国家最新税务政策，确保账务处理与纳税申报全流程合规。\n\n4. **专注**：让您把精力集中在核心业务上，财税问题由专业团队兜底处理。\n\n**柯洋优势**：核心团队均为执业注册税务师、会计师、合规师，可提供税务合规规划等高端增值服务。',
+        q: '企业长期零申报有什么风险？',
+        a: '长期零申报易被税务系统列为异常监控对象，可能引发核查、纳税评估，影响纳税信用等级，建议根据实际经营情况合规申报。',
       },
     ],
   },
-  '二、小规模纳税人': {
+  {
+    category: '小规模纳税人财税类',
     icon: Calculator,
     color: 'green',
     questions: [
       {
-        q: 'Q6：成都小规模纳税人代理记账多少钱一个月？（全网同行对标）',
-        a: '| 服务内容 | 市场低价 | 正规价 | 柯洋服务 |\n| ---- | ---- | ---- | ---- |\n| 日常记账报税 | 150–200元/月 | 200–400元/月 | 透明报价，无隐形收费 |\n| 年度汇算清缴 | 300–500元/年 | 500–800元/年 | 套餐内含 |\n| 工商年报 | 100–200元/年 | 200–300元/年 | 套餐内含 |\n\n价格影响：业务量、行业、是否开票。\n\n**柯洋承诺**：价格透明、无隐形收费，提供免费财税诊断。',
+        q: '小规模纳税人最新税收优惠政策有哪些？',
+        a: '小规模纳税人可按规定享受增值税减按规定征收率计税、附加税费减免等优惠，具体以国家税务总局及四川省税务局最新公告为准。',
       },
       {
-        q: 'Q7：小规模纳税人和一般纳税人有什么区别？',
-        a: '| 对比项 | 小规模纳税人 | 一般纳税人 |\n| ---- | ---- | ---- |\n| 认定标准 | 年应征增值税销售额≤500万元 | 年应征增值税销售额＞500万元，或自愿登记 |\n| 税率 | 3%征收率减按1%（2026–2027） | 6%/9%/13%（按行业） |\n| 进项抵扣 | 不可抵扣 | 可抵扣 |\n| 申报周期 | 季度 | 月度 |\n| 免税额度 | 季度＜30万普票免税 | 无免税，可抵扣 |\n\n**怎么选**：\n• 进项多、客户要专票 → 一般纳税人更省\n• 初创、业务小 → 小规模更划算\n\n柯洋提供**免费纳税人类型评估**。',
+        q: '小规模纳税人需要每月做账报税吗？',
+        a: '小规模纳税人通常按季申报增值税及附加税费，但会计账簿需按月规范建立，确保账务真实、完整、可查。',
       },
       {
-        q: 'Q8：成都抖音/淘宝电商卖家怎么选财税服务？',
-        a: '**电商痛点**：\n• 店铺不能当注册地址\n• 微信/支付宝收款需合规入账\n• 佣金、刷单、跨境外汇处理复杂\n\n**选代账4个标准**：\n1. 懂电商平台结算规则\n2. 有同类客户成功案例\n3. 熟悉电商税收优惠\n4. 成立3年以上、资质齐全\n\n**柯洋优势**：深耕成都电商财税5年+，服务抖音/淘宝客户，擅长佣金入账、刷单合规、私户转公、跨境申报。',
+        q: '小规模纳税人可以开具专票吗？有哪些注意点？',
+        a: '可以按规定自行开具或代开增值税专用发票，专票部分不享受相关免税优惠，需准确核算销售额并足额申报。',
       },
       {
-        q: 'Q9：小规模纳税人免税额度是多少？2026年最新政策',
-        a: '依据**财政部 税务总局公告2026年第10号**（2026.1.1–2027.12.31）：\n\n• 季度销售额＜30万元：开具普通发票免征增值税\n• 开具专票：按1%征收率正常缴税\n• 季度销售额≥30万元（含刚好30万）：全额按1%缴税\n\n**常见误区**：\n• ❌ 免税额度是每月30万 → ✅ 季度30万\n• ❌ 开专票也能免税 → ✅ 开专票需缴税\n• ❌ 超30万仅超额缴 → ✅ ≥30万全额缴税\n\n柯洋提供**免费政策解读+申报指导**。',
-      },
-      {
-        q: 'Q10：电商卖家需要了解哪些税务风险？',
-        a: '| 风险 | 说明 | 后果 |\n| ---- | ---- | ---- |\n| 隐匿收入 | 私户收货款不做账 | 补税+罚款+滞纳金 |\n| 成本票缺失 | 采购无票，利润虚高 | 多缴企业所得税 |\n| 私户发薪 | 微信/支付宝发工资 | 逃税风险 |\n| 刷单收入 | 未合规申报 | 稽查风险 |\n| 跨年报销 | 发票跨年入账 | 不予抵扣 |\n| 优惠未享 | 不懂政策多缴税 | 经济损失 |\n\n柯洋提供**年度财税体检+风险预警**。',
+        q: '小规模纳税人常见账务误区有哪些？',
+        a: '常见误区包括：收入不入账、成本票据不合规、公私款混用、费用凭证缺失等，易导致账务混乱与税务风险。',
       },
     ],
   },
-  '三、一般纳税人': {
+  {
+    category: '一般纳税人财税类',
     icon: FileText,
     color: 'purple',
     questions: [
       {
-        q: 'Q11：成都一般纳税人代理记账收费标准？（全网同行对标）',
-        a: '| 服务 | 价格 | 说明 |\n| ---- | ---- | ---- |\n| 日常记账报税 | 500–800元/月 | 月度申报，账务复杂 |\n| 年度汇算清缴 | 800–1500元/年 | 企业所得税汇算 |\n| 税务合规规划 | 定制报价 | 合法降负 |\n\n影响因素：进项票量、行业、出口退税、多家公司账务。\n\n**柯洋优势**：注册税务师亲自把关，提供税务合规规划、稽查应对、账务规范。',
+        q: '一般纳税人进项抵扣需要注意什么？',
+        a: '需取得合法合规的增值税扣税凭证，业务真实、三流一致，按规定时限认证抵扣，不得用于免税项目、集体福利等不得抵扣情形。',
       },
       {
-        q: 'Q12：一般纳税人如何做税务合规规划？',
-        a: '1. **进项发票管理**：必收专票、及时用途确认\n2. **加计抵减**：现代服务业可享10%/15%\n3. **供应商选择**：一般纳税人/小规模综合比价\n4. **业务拆分**：不同税率业务分开核算，避免从高适用\n5. **优惠用足**：高新、小微、区域返还等\n\n柯洋：**定制化税务合规规划**，合法合规降低税负。',
+        q: '一般纳税人税负偏高，如何实现合规优化？',
+        a: '在合法合规前提下，通过规范成本核算、充分享受政策优惠、优化业务链条、完善内控流程等方式实现税负合理管控。',
       },
       {
-        q: 'Q13：一般纳税人专票抵扣是怎么回事？',
-        a: '**公式**：销项税额 − 进项税额 = 应纳税额\n\n例：销项13万，进项9万 → 实缴4万。\n\n✅ **可抵扣项目**（一般纳税人取得合规增值税专用发票，且用于应税项目）：\n• 采购货物、设备、办公用品\n• 因公出差的住宿费（取得专票）\n• 广告服务、咨询服务等\n\n❌ **不可抵扣项目**（即使取得专票也不能抵扣）：\n• 用于集体福利、个人消费的支出（如员工福利、个人消费）\n• 业务招待费（含招待餐费、礼品等）\n• 用于简易计税项目、免税项目、非应税项目的支出\n• 非正常损失对应的进项税额\n\n**官方政策依据**（国家税务总局公告2019年第45号）：2017年1月1日后开具的专票已取消认证期限，无360天限制。',
+        q: '增值税申报异常常见原因有哪些？',
+        a: '常见原因包括：进项与销项比对不符、未开票收入未申报、红字发票处理错误、税款计算错误、系统数据不同步等。',
       },
       {
-        q: 'Q14：什么情况下企业需要升级为一般纳税人？',
-        a: '1. **连续12个月销售额＞500万**：强制升级\n2. **客户要求开13%/9%/6%专票抵扣**\n3. **进项票多，抵扣空间大**\n4. **投标/资质要求一般纳税人资格**\n\n**升级提醒**：\n• 税率从1%变为6%/9%/13%\n• 改为月度申报，财务要求更高\n\n建议：接近500万时**提前6个月规划**。柯洋提供**免费升级评估**。',
+        q: '一般纳税人如何保持长期税务合规？',
+        a: '建立规范账务体系，按期自查风险，留存完整凭证资料，及时学习最新政策，必要时引入专业财税机构进行风险体检。',
       },
     ],
   },
-  '四、特殊场景': {
+  {
+    category: '特殊行业财税类',
     icon: Settings,
     color: 'orange',
     questions: [
       {
-        q: 'Q15：成都公司注销需要多少钱？需要多久？（全网同行对标）',
-        a: '| 注销类型 | 费用 | 周期 |\n| ---- | ---- | ---- |\n| 简易注销 | 1000–2000元 | 1–2个月 |\n| 一般注销 | 2000–5000元 | 2–3个月 |\n| 疑难注销 | 5000–20000元+ | 6个月–1年+ |\n\n费用差异：税务异常、未年报、债权债务、证照遗失等。\n\n**柯洋服务**：\n• 简易注销：1500元起，1–2个月办结\n• 疑难注销：先查账再报价，先处理后付费\n\n提示：异常越久，罚款越多，越早注销越省钱。',
+        q: '建筑企业异地项目财税需要注意什么？',
+        a: '需按规定办理跨区域涉税事项报告，在项目地预缴税款，规范分包、材料、机械租赁等成本凭证，避免项目账混乱引发风险。',
       },
       {
-        q: 'Q16：成都企业税务异常怎么处理？',
-        a: '**常见异常**：\n• 未按时报税：补申报+罚款（50–200元/次）\n• 长期零申报：提供经营证明\n• 发票异常：配合核查\n• 地址异常：变更地址或解锁\n\n**处理流程**：查原因→补申报/整改→提交材料→解除异常。\n\n**柯洋强项**：已帮上百家企业解除税务/工商异常，熟悉成都各区流程。',
+        q: '文化传媒高营收企业如何做好财税合规？',
+        a: '重点规范收入确认、成本列支、发票管理、个税与社保合规，建立内控体系，配合年度审计，确保大额营收全程可追溯。',
       },
       {
-        q: 'Q17：公司股权变更需要交哪些税？',
-        a: '| 税种 | 主体 | 税率 | 说明 |\n| ---- | ---- | ---- | ---- |\n| 个人所得税 | 自然人股东 | 20% | （转让收入−原值）×20% |\n| 企业所得税 | 企业股东 | 25% | 并入所得计税 |\n| 印花税 | 双方 | 0.05% | 转让协议 |\n\n示例：原值100万，转让200万 → 个税20万。\n\n柯洋：**变更前税务合规规划**，合法降低税负。',
+        q: '人力资源公司财税风险主要集中在哪些方面？',
+        a: '主要风险点包括：业务真实性、代发工资合规性、社保个税匹配、发票开具与业务一致性、差额计税适用是否准确。',
       },
       {
-        q: 'Q18：成都创业初期有哪些税务优惠政策？',
-        a: '• **小规模**：季度＜30万普票免税（财政部 税务总局2026年第10号）\n• **六税两费**：减半征收（小规模/小微/个体，2026–2027有效，财政部2023年12号）\n• **高新企业**：所得税15%\n• **天府新区/高新区**：额外税收返还\n• **高校毕业生/返乡创业**：补贴、贴息贷款\n\n柯洋：**免费评估可享政策**，确保应享尽享。',
+        q: '股东要求查账，企业需要提前准备哪些资料？',
+        a: '需准备完整会计账簿、记账凭证、银行流水、合同协议、纳税申报表、发票存根等，确保账务真实规范，避免争议风险。',
+      },
+      {
+        q: '大额投资前为什么要做财税尽调？',
+        a: '财税尽调可提前识别隐性负债、税务风险、账务虚假、违规操作等问题，避免投资后出现重大损失与连带法律风险。',
       },
     ],
   },
-  '五、选服务商标准': {
+  {
+    category: '如何选择专业财税服务机构',
     icon: HelpCircle,
     color: 'indigo',
     questions: [
       {
-        q: 'Q19：成都代理记账公司怎么选？哪家好？',
-        a: '**5大标准**：\n\n1. **资质**：有代理记账许可证+税务师事务所资质（⭐⭐⭐⭐⭐）\n2. **专业**：核心是注册税务师、会计师、合规师，不是普通会计（⭐⭐⭐⭐⭐）\n3. **稳定**：成立3年以上、口碑好（⭐⭐⭐⭐）\n4. **透明**：报价清晰，无隐形收费（⭐⭐⭐⭐）\n5. **响应**：及时回复、上门服务（⭐⭐⭐）\n\n**避坑**：\n• 99元/月低价陷阱，后期乱加价\n• 无资质、小作坊，易跑路\n• 只做流水账，不懂规划与风控\n\n**柯洋实力**：\n• 成立9年，服务企业1000+\n• 正规税务师事务所\n• 价格透明，7×12小时响应\n• AI+税务师双核，合规更稳',
+        q: '选择财税服务，只看价格合理吗？',
+        a: '不合理。低价往往伴随简化账务、资料缺失、风险后置，企业更应关注机构资质、专业能力、风控经验与服务规范性。',
       },
       {
-        q: 'Q20：找代理记账公司需要注意什么？',
-        a: '**签约前必问6问**：\n1. 有代理记账许可证吗？\n2. 做过我这个行业吗？\n3. 报税延误谁负责？\n4. 税务稽查会协助吗？\n5. 费用全包吗，有无隐形收费？\n6. 账本保管多少年？\n\n**签约必做3件事**：\n1. 材料交接清单（执照、章、许可证）\n2. 明确服务范围（哪些做、哪些不做）\n3. 固定对接人、汇报频次\n\n**柯洋承诺**：签约前免费上门沟通，费用透明，服务不满意可随时终止。',
+        q: '税务师事务所和普通代账公司有什么区别？',
+        a: '税务师事务所具备执业资质，侧重税务合规、风险管控、审计尽调、高端财税规划；普通代账多以基础记账报税为主，专业深度不同。',
+      },
+      {
+        q: '如何判断一家财税机构是否专业靠谱？',
+        a: '可查看：执业资质、团队背景、行业案例、服务流程、风控体系、客户口碑，尤其关注是否有大额项目实战经验。',
+      },
+      {
+        q: '企业什么时候需要引入外部财税专家？',
+        a: '账务混乱、历史遗留问题多、面临稽查核查、融资上市、大额投资、跨区域经营、集团化管理时，建议及时引入专业财税团队。',
       },
     ],
   },
+];
+
+const colorMap: Record<string, { bg: string; text: string; border: string; icon: string; hoverBg: string }> = {
+  blue: { bg: 'bg-blue-50', text: 'text-blue-600', border: 'border-blue-200', icon: 'bg-blue-100', hoverBg: 'hover:bg-blue-50' },
+  green: { bg: 'bg-emerald-50', text: 'text-emerald-600', border: 'border-emerald-200', icon: 'bg-emerald-100', hoverBg: 'hover:bg-emerald-50' },
+  purple: { bg: 'bg-purple-50', text: 'text-purple-600', border: 'border-purple-200', icon: 'bg-purple-100', hoverBg: 'hover:bg-purple-50' },
+  orange: { bg: 'bg-orange-50', text: 'text-orange-600', border: 'border-orange-200', icon: 'bg-orange-100', hoverBg: 'hover:bg-orange-50' },
+  indigo: { bg: 'bg-indigo-50', text: 'text-indigo-600', border: 'border-indigo-200', icon: 'bg-indigo-100', hoverBg: 'hover:bg-indigo-50' },
 };
 
-const colorMap: Record<string, { bg: string; text: string; border: string; icon: string }> = {
-  blue: { bg: 'bg-blue-50', text: 'text-blue-600', border: 'border-blue-200', icon: 'bg-blue-100' },
-  green: { bg: 'bg-emerald-50', text: 'text-emerald-600', border: 'border-emerald-200', icon: 'bg-emerald-100' },
-  purple: { bg: 'bg-purple-50', text: 'text-purple-600', border: 'border-purple-200', icon: 'bg-purple-100' },
-  orange: { bg: 'bg-orange-50', text: 'text-orange-600', border: 'border-orange-200', icon: 'bg-orange-100' },
-  indigo: { bg: 'bg-indigo-50', text: 'text-indigo-600', border: 'border-indigo-200', icon: 'bg-indigo-100' },
-};
+// 统计总问题数
+const totalQuestions = faqData.reduce((sum, cat) => sum + cat.questions.length, 0);
 
 export default function FAQPage() {
   const [openItems, setOpenItems] = useState<Set<string>>(new Set());
-  const [activeCategory, setActiveCategory] = useState<string>('一、基础认知类');
+  const [activeCategory, setActiveCategory] = useState<string>(faqData[0].category);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleItem = (id: string) => {
     setOpenItems((prev) => {
@@ -158,10 +169,7 @@ export default function FAQPage() {
     });
   };
 
-  const allCategories = Object.keys(faqData);
-  const flatQuestions = allCategories.flatMap((cat) =>
-    faqData[cat as keyof typeof faqData].questions.map((q) => ({ ...q, category: cat }))
-  );
+  const activeData = faqData.find((cat) => cat.category === activeCategory);
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -170,7 +178,7 @@ export default function FAQPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
           <Badge className="mb-6 bg-white/10 text-amber-300 border border-amber-400/30">
             <CheckCircle2 className="h-3.5 w-3.5 mr-1.5" />
-            2026年最新版
+            专业解答
           </Badge>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
             常见问题
@@ -179,16 +187,16 @@ export default function FAQPage() {
             </span>
           </h1>
           <p className="mt-6 text-lg text-slate-300 max-w-2xl mx-auto">
-            整理了企业主最常问的20个问题，涵盖注册公司、代理记账、税务规划等全流程
+            整理了企业主最常问的{totalQuestions}个问题，涵盖注册公司、代理记账、税务规划等全流程
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild size="lg" className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white px-8 py-5 rounded-full shadow-lg">
+            <Button asChild size="lg" className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white px-8 py-5 rounded-full shadow-lg text-base">
               <Link href="/contact">
                 <MessageCircle className="h-4 w-4 mr-2" />
                 在线咨询
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-2 border-white/30 bg-transparent text-white hover:bg-white/10 px-8 py-5 rounded-full">
+            <Button asChild variant="outline" size="lg" className="border-2 border-white/30 bg-transparent text-white hover:bg-white/10 px-8 py-5 rounded-full text-base">
               <Link href="tel:18980020731">
                 <Phone className="h-4 w-4 mr-2" />
                 189-8002-0731
@@ -203,7 +211,7 @@ export default function FAQPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8">
             {[
-              { num: '20', label: '精选问题' },
+              { num: String(totalQuestions), label: '精选问题' },
               { num: '5', label: '知识分类' },
               { num: '9年', label: '行业经验' },
               { num: '1000+', label: '服务企业' },
@@ -223,27 +231,73 @@ export default function FAQPage() {
       <section className="py-12 sm:py-16 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-8">
-            {/* Sidebar - Category Navigation */}
-            <div className="lg:w-64 flex-shrink-0">
-              <div className="lg:sticky lg:top-24">
-                <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">知识分类</h3>
-                <nav className="space-y-1">
-                  {allCategories.map((category) => {
-                    const data = faqData[category as keyof typeof faqData];
-                    const Icon = data.icon;
-                    const colors = colorMap[data.color];
+
+            {/* 移动端：顶部下拉菜单 */}
+            <div className="lg:hidden">
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="w-full flex items-center justify-between px-5 py-4 bg-slate-50 rounded-xl border-2 border-slate-200 text-left"
+              >
+                <div className="flex items-center gap-3">
+                  {activeData && (
+                    <>
+                      <activeData.icon className={`h-5 w-5 ${colorMap[activeData.color].text}`} />
+                      <span className="font-semibold text-slate-900 text-base">{activeCategory}</span>
+                    </>
+                  )}
+                </div>
+                <ChevronUpDown className="h-5 w-5 text-slate-400" />
+              </button>
+              {mobileMenuOpen && (
+                <div className="mt-2 bg-white rounded-xl border-2 border-slate-200 shadow-lg overflow-hidden">
+                  {faqData.map((cat) => {
+                    const Icon = cat.icon;
+                    const colors = colorMap[cat.color];
                     return (
                       <button
-                        key={category}
-                        onClick={() => setActiveCategory(category)}
+                        key={cat.category}
+                        onClick={() => {
+                          setActiveCategory(cat.category);
+                          setMobileMenuOpen(false);
+                        }}
+                        className={`w-full flex items-center gap-3 px-5 py-4 text-left transition-colors ${
+                          activeCategory === cat.category
+                            ? `${colors.bg} ${colors.text} font-semibold`
+                            : 'text-slate-600 hover:bg-slate-50'
+                        }`}
+                      >
+                        <Icon className="h-5 w-5 flex-shrink-0" />
+                        <span className="text-base">{cat.category}</span>
+                        <Badge variant="outline" className={`ml-auto ${colors.border} ${colors.text} text-xs`}>
+                          {cat.questions.length}
+                        </Badge>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            {/* 桌面端：左侧分类导航 */}
+            <div className="hidden lg:block lg:w-64 flex-shrink-0">
+              <div className="sticky top-24">
+                <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">知识分类</h3>
+                <nav className="space-y-1">
+                  {faqData.map((cat) => {
+                    const Icon = cat.icon;
+                    const colors = colorMap[cat.color];
+                    return (
+                      <button
+                        key={cat.category}
+                        onClick={() => setActiveCategory(cat.category)}
                         className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all ${
-                          activeCategory === category
+                          activeCategory === cat.category
                             ? `${colors.bg} ${colors.text} font-medium`
                             : 'text-slate-600 hover:bg-slate-100'
                         }`}
                       >
                         <Icon className="h-5 w-5 flex-shrink-0" />
-                        <span className="text-sm">{category}</span>
+                        <span className="text-sm">{cat.category}</span>
                       </button>
                     );
                   })}
@@ -251,69 +305,85 @@ export default function FAQPage() {
               </div>
             </div>
 
-            {/* FAQ List */}
+            {/* FAQ 问答列表 */}
             <div className="flex-1">
-              {allCategories.map((category) => {
-                const data = faqData[category as keyof typeof faqData];
-                const Icon = data.icon;
-                const colors = colorMap[data.color];
-
-                if (activeCategory !== category) return null;
-
+              {activeData && (() => {
+                const Icon = activeData.icon;
+                const colors = colorMap[activeData.color];
                 return (
-                  <div key={category} className="space-y-4">
-                    {/* Category Header */}
-                    <div className={`flex items-center gap-3 p-4 rounded-xl ${colors.bg} ${colors.text}`}>
-                      <Icon className="h-6 w-6" />
-                      <h2 className="text-lg font-semibold">{category}</h2>
+                  <div className="space-y-4">
+                    {/* 分类标题（桌面端显示） */}
+                    <div className="hidden lg:flex items-center gap-3 p-4 rounded-xl bg-slate-50">
+                      <Icon className={`h-6 w-6 ${colors.text}`} />
+                      <h2 className="text-lg font-semibold text-slate-900">{activeCategory}</h2>
                       <Badge variant="outline" className={`ml-auto ${colors.border} ${colors.text}`}>
-                        {data.questions.length} 个问题
+                        {activeData.questions.length} 个问题
                       </Badge>
                     </div>
 
-                    {/* Questions */}
+                    {/* 问题卡片 */}
                     <div className="space-y-3">
-                      {data.questions.map((item, idx) => {
-                        const itemId = `${category}-${idx}`;
+                      {activeData.questions.map((item, idx) => {
+                        const itemId = `${activeCategory}-${idx}`;
                         const isOpen = openItems.has(itemId);
 
                         return (
-                          <Card key={idx} className={`border-2 transition-all ${isOpen ? colors.border : 'border-slate-100'}`}>
+                          <Card
+                            key={idx}
+                            className={`border-2 transition-all duration-300 overflow-hidden ${
+                              isOpen ? `${colors.border} shadow-md` : 'border-slate-100 hover:border-slate-200'
+                            }`}
+                          >
                             <button
                               onClick={() => toggleItem(itemId)}
                               className="w-full text-left"
                             >
-                              <CardContent className="p-4 sm:p-5 flex items-start gap-4">
-                                <div className={`flex-shrink-0 w-8 h-8 rounded-full ${colors.icon} flex items-center justify-center`}>
-                                  <span className={`text-sm font-semibold ${colors.text}`}>
-                                    {item.q.match(/Q(\d+)/)?.[1] || idx + 1}
+                              <CardContent className="p-5 sm:p-6 flex items-start gap-4">
+                                <div className={`flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full ${colors.icon} flex items-center justify-center transition-colors duration-300 ${isOpen ? colors.text : ''}`}>
+                                  <span className={`text-sm font-semibold ${isOpen ? colors.text : 'text-slate-500'}`}>
+                                    {idx + 1}
                                   </span>
                                 </div>
-                                <div className="flex-1">
-                                  <h3 className="font-medium text-slate-900 leading-relaxed">
-                                    {item.q.replace(/^Q\d+：/, '')}
+                                <div className="flex-1 min-w-0">
+                                  <h3 className={`text-base sm:text-lg leading-relaxed transition-all duration-300 ${
+                                    isOpen ? 'font-bold text-slate-900' : 'font-medium text-slate-800'
+                                  }`}>
+                                    {item.q}
                                   </h3>
                                 </div>
-                                <div className={`flex-shrink-0 ${colors.text}`}>
-                                  {isOpen ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+                                <div className={`flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
+                                  <ChevronDown className={`h-5 w-5 transition-colors duration-300 ${isOpen ? colors.text : 'text-slate-400'}`} />
                                 </div>
                               </CardContent>
                             </button>
 
-                            {isOpen && (
-                              <div className={`px-5 pb-5 pt-0 border-t ${colors.border} mt-0`}>
-                                <div className="pt-4 text-slate-600 text-sm leading-relaxed whitespace-pre-line">
-                                  {item.a}
+                            {/* 答案区域 - 平滑展开 */}
+                            <div
+                              className="transition-all duration-300 ease-in-out overflow-hidden"
+                              style={{
+                                maxHeight: isOpen ? 500 : 0,
+                                opacity: isOpen ? 1 : 0,
+                              }}
+                            >
+                              <div className={`px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t ${colors.border}`}>
+                                <div className="pt-4">
+                                  <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${colors.bg} ${colors.text} text-xs font-medium mb-3`}>
+                                    <CheckCircle2 className="h-3 w-3" />
+                                    柯洋财税解答
+                                  </div>
+                                  <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+                                    {item.a}
+                                  </p>
                                 </div>
                               </div>
-                            )}
+                            </div>
                           </Card>
                         );
                       })}
                     </div>
                   </div>
                 );
-              })}
+              })()}
             </div>
           </div>
         </div>
