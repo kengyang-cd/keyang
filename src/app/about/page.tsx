@@ -10,6 +10,7 @@ import {
   Clock,
   ArrowRight,
 } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function AboutPage() {
@@ -163,28 +164,67 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
               资质认证
             </h2>
+            <p className="mt-4 text-muted-foreground">
+              持证经营，权威认证，值得信赖
+            </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-6">
-            <Card className="border-2 border-primary/20">
-              <CardContent className="p-6 text-center">
-                <ShieldCheck className="h-10 w-10 text-primary mx-auto mb-3" />
-                <h3 className="font-bold text-foreground">执业注册税务师机构</h3>
-              </CardContent>
-            </Card>
-            <Card className="border-2 border-primary/20">
-              <CardContent className="p-6 text-center">
-                <Award className="h-10 w-10 text-primary mx-auto mb-3" />
-                <h3 className="font-bold text-foreground">TSC5 信用等级</h3>
-                <p className="text-sm text-muted-foreground mt-1">2024年度涉税专业服务机构</p>
-              </CardContent>
-            </Card>
-            <Card className="border-2 border-primary/20">
-              <CardContent className="p-6 text-center">
-                <ShieldCheck className="h-10 w-10 text-primary mx-auto mb-3" />
-                <h3 className="font-bold text-foreground">公安备案</h3>
-                <p className="text-sm text-muted-foreground mt-1">合法合规经营证明</p>
-              </CardContent>
-            </Card>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {[
+              {
+                src: '/certs/zhiyeshuiwu.jpg',
+                title: '执业注册税务师机构',
+                desc: '国家税务总局认定执业资质，专业税务服务权威保障',
+              },
+              {
+                src: '/certs/tsc5.jpg',
+                title: 'TSC5 级信用等级',
+                desc: '2024年度涉税专业服务机构最高信用等级',
+              },
+              {
+                src: '/certs/dailijizhang.jpg',
+                title: '代理记账许可证',
+                desc: '财政部门审批许可，合法从事代理记账业务',
+              },
+              {
+                src: '/certs/chengshihehuoren.jpg',
+                title: '城市合伙人',
+                desc: '行业认可，深度参与区域财税服务生态建设',
+              },
+              {
+                src: '/certs/lishidanwei.jpg',
+                title: '成都中小企业协会理事单位',
+                desc: '获评理事单位，积极助力中小企业发展',
+              },
+              {
+                src: '/certs/chengdudailijizhang.jpg',
+                title: '成都代理记账协会会员',
+                desc: '行业协会正式会员，接受行业自律监管',
+              },
+              {
+                src: '/certs/chengxinguoyue.jpg',
+                title: '诚信公约签署单位',
+                desc: '成都市代理记账行业协会诚信公约签署单位',
+              },
+            ].map((cert) => (
+              <Card
+                key={cert.src}
+                className="border-2 border-primary/20 overflow-hidden group hover:shadow-lg transition-shadow"
+              >
+                <div className="relative aspect-[4/3] bg-white overflow-hidden">
+                  <Image
+                    src={cert.src}
+                    alt={cert.title}
+                    fill
+                    className="object-contain p-3 group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+                <CardContent className="p-4">
+                  <h3 className="font-bold text-foreground text-sm">{cert.title}</h3>
+                  <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{cert.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
