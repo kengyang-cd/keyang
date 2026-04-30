@@ -15,7 +15,7 @@ import {
   CheckCircle2,
   Phone,
   MessageCircle,
-  ChevronUpDown,
+  ChevronsUpDown,
 } from 'lucide-react';
 
 // FAQ 数据 - 5大类21个问题
@@ -338,7 +338,7 @@ export default function FAQPage() {
                     </>
                   )}
                 </div>
-                <ChevronUpDown className="h-5 w-5 text-slate-400" />
+                <ChevronsUpDown className="h-5 w-5 text-slate-400" />
               </button>
               {mobileMenuOpen && (
                 <div className="mt-2 bg-white rounded-xl border-2 border-slate-200 shadow-lg overflow-hidden">
