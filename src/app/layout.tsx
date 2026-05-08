@@ -1,9 +1,23 @@
 import type { Metadata } from 'next';
 import { Inspector } from 'react-dev-inspector';
+import { Noto_Serif_SC, Inter } from 'next/font/google';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { FloatingQRSidebar } from '@/components/floating-qr-sidebar';
 import './globals.css';
+
+const notoSerifSC = Noto_Serif_SC({
+  subsets: ['latin'],
+  weight: ['400', '600', '700', '900'],
+  variable: '--font-noto-serif-sc',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -67,7 +81,7 @@ export default function RootLayout({
 
   return (
     <html lang="zh-CN">
-      <body className={`antialiased`}>
+      <body className={`${notoSerifSC.variable} ${inter.variable} antialiased`}>
         {isDev && <Inspector />}
         <SiteHeader />
         {children}

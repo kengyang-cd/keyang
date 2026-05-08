@@ -34,7 +34,7 @@ export function FloatingQRSidebar() {
           </div>
         </div>
         {/* 标签 */}
-        <div className="absolute -left-1 top-1/2 -translate-y-1/2 bg-green-500 text-white text-xs px-1.5 py-0.5 rounded-l">
+        <div className="absolute -left-1 top-1/2 -translate-y-1/2 text-white text-xs px-1.5 py-0.5 rounded-l" style={{ backgroundColor: '#b8913a' }}>
           公众号
         </div>
       </div>
@@ -68,7 +68,7 @@ export function FloatingQRSidebar() {
           </div>
         </div>
         {/* 标签 */}
-        <div className="absolute -left-1 top-1/2 -translate-y-1/2 bg-pink-500 text-white text-xs px-1.5 py-0.5 rounded-l">
+        <div className="absolute -left-1 top-1/2 -translate-y-1/2 text-white text-xs px-1.5 py-0.5 rounded-l" style={{ backgroundColor: '#b8913a' }}>
           抖音
         </div>
       </div>

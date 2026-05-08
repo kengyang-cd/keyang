@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/scroll-animation';
 
 const certifications = [
   { name: '注册税务师', icon: ShieldCheck },
@@ -26,7 +27,7 @@ const teamMembers = [
     name: '孙凤',
     title: '创始人',
     credentials: '执业注册税务师',
-    description: '近 30 年财税实战专家，多家亿元级企业特聘财务总监、财税顾问，擅长建筑、新消费饮品、文化传媒、律所、电商、制造、矿产能源等多领域财税服务、内控体系搭建及大额投资财税尽调，曾成功为投资方规避上亿投资损失。',
+    description: '近 30 年财税实战专家，多家亿元级企业特聘财务总监、财税顾问，擅长建筑、新消费、文化传媒、律所、电商、制造、矿产能源等多领域财税服务、内控体系搭建及大额投资财税尽调，曾成功为投资方规避上亿投资损失。',
     highlight: '亿元级投资尽调实战，亲自带队',
     image: '/team/孙凤.png',
     featured: true,
@@ -82,13 +83,14 @@ export default function TeamPage() {
   return (
     <div className="flex flex-col">
       {/* Header */}
-      <section className="bg-gradient-to-b from-primary/10 to-background py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="relative overflow-hidden pt-28 pb-20 sm:pb-28" style={{ backgroundColor: '#0a1628' }}>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(212,168,83,1) 1px, transparent 1px), linear-gradient(90deg, rgba(212,168,83,1) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-foreground">
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-white font-[family-name:var(--font-noto-serif-sc)]">
               专家团队
             </h1>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground">
+            <p className="mt-6 text-lg leading-8 max-w-2xl mx-auto" style={{ color: '#9ca3af' }}>
               柯洋税所由资深财税专家孙凤创立，团队持有注册税务师、会计师、企业合规师、
               <br className="hidden sm:block" />
               纳税筹划师、管理会计师等专业资质，深耕财税服务近 30 年。
@@ -98,175 +100,176 @@ export default function TeamPage() {
       </section>
 
       {/* Certifications */}
-      <section className="py-16 sm:py-20 bg-muted/50">
+      <section className="py-16 sm:py-20" style={{ backgroundColor: '#f8f7f4' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-10">
-            <h2 className="text-2xl font-bold tracking-tight text-foreground">
-              专业资质认证
-            </h2>
-            <p className="mt-2 text-muted-foreground">
-              团队成员持证上岗，合法合规执业
-            </p>
-          </div>
-          <div className="flex flex-wrap justify-center gap-4">
-            {certifications.map((cert, index) => {
-              const Icon = cert.icon;
-              return (
-                <div
-                  key={index}
-                  className="inline-flex items-center gap-2 rounded-full bg-background px-5 py-3 text-sm font-medium shadow-sm border"
-                >
-                  <Icon className="h-4 w-4 text-primary" />
-                  <span>{cert.name}</span>
-                </div>
-              );
-            })}
-          </div>
+          <ScrollReveal>
+            <div className="mx-auto max-w-2xl text-center mb-10">
+              <h2 className="text-2xl font-bold tracking-tight font-[family-name:var(--font-noto-serif-sc)]" style={{ color: '#0a1628' }}>
+                专业资质认证
+              </h2>
+              <p className="mt-2" style={{ color: '#6b7280' }}>
+                团队成员持证上岗，合法合规执业
+              </p>
+            </div>
+          </ScrollReveal>
+          <StaggerContainer>
+            <div className="flex flex-wrap justify-center gap-4">
+              {certifications.map((cert, index) => {
+                const Icon = cert.icon;
+                return (
+                  <StaggerItem key={index}>
+                    <div className="inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium shadow-sm bg-white min-w-[130px]" style={{ border: '1px solid rgba(212,168,83,0.2)' }}>
+                      <Icon className="h-4 w-4 flex-shrink-0" style={{ color: '#d4a853' }} />
+                      <span style={{ color: '#0a1628' }}>{cert.name}</span>
+                    </div>
+                  </StaggerItem>
+                );
+              })}
+            </div>
+          </StaggerContainer>
         </div>
       </section>
 
-      {/* Team Members - Featured (孙凤 & 丁汝彬) */}
-      <section className="py-20 sm:py-28">
+      {/* Team Members - Featured */}
+      <section className="py-20 sm:py-28" style={{ backgroundColor: '#ffffff' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
-              核心创始人
-            </h2>
-          </div>
-          <div className="grid gap-8 lg:grid-cols-2 max-w-4xl mx-auto">
-            {teamMembers.filter(m => m.featured).map((member, index) => (
-              <Card key={index} className="overflow-hidden">
-                <CardContent className="p-0">
-                  <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-8 flex justify-center">
-                    <div className="relative h-40 w-40">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        fill
-                        className="object-cover rounded-full ring-4 ring-white shadow-lg"
-                      />
+          <ScrollReveal>
+            <div className="mx-auto max-w-2xl text-center mb-16">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-[family-name:var(--font-noto-serif-sc)]" style={{ color: '#0a1628' }}>
+                核心创始人
+              </h2>
+            </div>
+          </ScrollReveal>
+          <StaggerContainer>
+            <div className="grid gap-8 lg:grid-cols-2 max-w-4xl mx-auto">
+              {teamMembers.filter(m => m.featured).map((member, index) => (
+                <StaggerItem key={index}>
+                  <div className="overflow-hidden rounded-2xl bg-white border border-gray-100 transition-all duration-300 hover:-translate-y-1 hover:border-[#d4a853]/30 h-full" style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}>
+                    <div className="p-8 flex justify-center" style={{ background: 'linear-gradient(135deg, rgba(212,168,83,0.1), rgba(10,22,40,0.05))' }}>
+                      <div className="relative h-40 w-40">
+                        <Image
+                          src={member.image}
+                          alt={member.name}
+                          fill
+                          className="object-cover rounded-full ring-4 ring-white shadow-lg"
+                        />
+                      </div>
+                    </div>
+                    <div className="p-6 text-center">
+                      <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-medium mb-3" style={{ backgroundColor: 'rgba(212,168,83,0.1)', color: '#b8913a' }}>
+                        {member.credentials}
+                      </div>
+                      <h3 className="text-2xl font-bold mb-1 font-[family-name:var(--font-noto-serif-sc)]" style={{ color: '#0a1628' }}>
+                        {member.name}
+                      </h3>
+                      <p className="mb-4" style={{ color: '#6b7280' }}>{member.title}</p>
+                      <p className="text-sm leading-relaxed mb-4" style={{ color: '#6b7280' }}>
+                        {member.description}
+                      </p>
+                      <div className="flex items-center justify-center gap-2 text-sm font-medium" style={{ color: '#d4a853' }}>
+                        <CheckCircle2 className="h-4 w-4" />
+                        <span>{member.highlight}</span>
+                      </div>
                     </div>
                   </div>
-                  <div className="p-6 text-center">
-                    <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-3">
-                      {member.credentials}
-                    </div>
-                    <h3 className="text-2xl font-bold text-foreground mb-1">
-                      {member.name}
-                    </h3>
-                    <p className="text-muted-foreground mb-4">{member.title}</p>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                      {member.description}
-                    </p>
-                    <div className="flex items-center justify-center gap-2 text-sm text-primary font-medium">
-                      <CheckCircle2 className="h-4 w-4" />
-                      <span>{member.highlight}</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                </StaggerItem>
+              ))}
+            </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Team Members - Others */}
-      <section className="py-16 sm:py-20 bg-muted/30">
+      <section className="py-16 sm:py-20" style={{ backgroundColor: '#f8f7f4' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-12">
-            <h2 className="text-2xl font-bold tracking-tight text-foreground">
-              专业团队
-            </h2>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto">
-            {teamMembers.filter(m => !m.featured).map((member, index) => (
-              <Card key={index} className="overflow-hidden">
-                <CardContent className="p-0">
-                  <div className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 flex justify-center">
-                    <div className="relative h-24 w-24">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        fill
-                        className="object-cover rounded-full ring-2 ring-white shadow-md"
-                      />
+          <ScrollReveal>
+            <div className="mx-auto max-w-2xl text-center mb-12">
+              <h2 className="text-2xl font-bold tracking-tight font-[family-name:var(--font-noto-serif-sc)]" style={{ color: '#0a1628' }}>
+                专业团队
+              </h2>
+            </div>
+          </ScrollReveal>
+          <StaggerContainer>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto">
+              {teamMembers.filter(m => !m.featured).map((member, index) => (
+                <StaggerItem key={index}>
+                  <div className="overflow-hidden rounded-2xl bg-white border border-gray-100 transition-all duration-300 hover:-translate-y-1 hover:border-[#d4a853]/30 h-full" style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}>
+                    <div className="p-6 flex justify-center" style={{ background: 'linear-gradient(135deg, rgba(212,168,83,0.08), rgba(10,22,40,0.03))' }}>
+                      <div className="relative h-24 w-24">
+                        <Image
+                          src={member.image}
+                          alt={member.name}
+                          fill
+                          className="object-cover rounded-full ring-2 ring-white shadow-md"
+                        />
+                      </div>
+                    </div>
+                    <div className="p-4 text-center">
+                      <h3 className="text-lg font-bold mb-1 font-[family-name:var(--font-noto-serif-sc)]" style={{ color: '#0a1628' }}>
+                        {member.name}
+                      </h3>
+                      <p className="text-xs mb-2" style={{ color: '#6b7280' }}>{member.title}</p>
+                      <p className="text-xs leading-relaxed line-clamp-3" style={{ color: '#6b7280' }}>
+                        {member.description}
+                      </p>
                     </div>
                   </div>
-                  <div className="p-4 text-center">
-                    <h3 className="text-lg font-bold text-foreground mb-1">
-                      {member.name}
-                    </h3>
-                    <p className="text-xs text-muted-foreground mb-2">{member.title}</p>
-                    <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">
-                      {member.description}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                </StaggerItem>
+              ))}
+            </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Team Values */}
-      <section className="bg-gradient-to-br from-slate-900 to-slate-800 py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-12">
-              团队服务理念
-            </h2>
-            <div className="grid gap-8 sm:grid-cols-3">
-              <div className="rounded-2xl bg-white/10 p-8 backdrop-blur text-center">
-                <div className="text-4xl font-bold text-primary mb-4">合规为先</div>
-                <p className="text-white/80">
-                  合法合规是一切服务的基础
-                </p>
-              </div>
-              <div className="rounded-2xl bg-white/10 p-8 backdrop-blur text-center">
-                <div className="text-4xl font-bold text-primary mb-4">专业为本</div>
-                <p className="text-white/80">
-                  持证上岗，实战经验丰富
-                </p>
-              </div>
-              <div className="rounded-2xl bg-white/10 p-8 backdrop-blur text-center">
-                <div className="text-4xl font-bold text-primary mb-4">长期陪伴</div>
-                <p className="text-white/80">
-                  适配企业全生命周期发展
-                </p>
+      <section className="py-20 sm:py-28" style={{ backgroundColor: '#0a1628' }}>
+        <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'linear-gradient(rgba(212,168,83,1) 1px, transparent 1px), linear-gradient(90deg, rgba(212,168,83,1) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="mx-auto max-w-4xl text-center">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-12 text-white font-[family-name:var(--font-noto-serif-sc)]">
+                团队服务理念
+              </h2>
+              <div className="grid gap-8 sm:grid-cols-3">
+                <div className="rounded-2xl p-8 backdrop-blur text-center" style={{ backgroundColor: 'rgba(212,168,83,0.1)' }}>
+                  <div className="text-4xl font-bold mb-4 font-[family-name:var(--font-noto-serif-sc)]" style={{ color: '#d4a853' }}>合规为先</div>
+                  <p style={{ color: 'rgba(255,255,255,0.7)' }}>合法合规是一切服务的基础</p>
+                </div>
+                <div className="rounded-2xl p-8 backdrop-blur text-center" style={{ backgroundColor: 'rgba(212,168,83,0.1)' }}>
+                  <div className="text-4xl font-bold mb-4 font-[family-name:var(--font-noto-serif-sc)]" style={{ color: '#d4a853' }}>专业为本</div>
+                  <p style={{ color: 'rgba(255,255,255,0.7)' }}>持证上岗，实战经验丰富</p>
+                </div>
+                <div className="rounded-2xl p-8 backdrop-blur text-center" style={{ backgroundColor: 'rgba(212,168,83,0.1)' }}>
+                  <div className="text-4xl font-bold mb-4 font-[family-name:var(--font-noto-serif-sc)]" style={{ color: '#d4a853' }}>长期陪伴</div>
+                  <p style={{ color: 'rgba(255,255,255,0.7)' }}>适配企业全生命周期发展</p>
+                </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-primary py-20 sm:py-28">
+      <section className="py-20 sm:py-28" style={{ backgroundColor: '#f8f7f4' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl">
-              与专家团队直接沟通
-            </h2>
-            <p className="mx-auto mt-6 text-lg text-primary-foreground/90">
-              立即联系柯洋，让专业团队为您的企业保驾护航。
-            </p>
-            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" variant="secondary">
-                <Link href="/contact">
+          <ScrollReveal>
+            <div className="mx-auto max-w-2xl text-center">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-[family-name:var(--font-noto-serif-sc)]" style={{ color: '#0a1628' }}>
+                与专家团队直接沟通
+              </h2>
+              <p className="mx-auto mt-6 text-lg" style={{ color: '#6b7280' }}>
+                立即联系柯洋，让专业团队为您的企业保驾护航。
+              </p>
+              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 text-sm font-medium rounded-full gold-gradient gold-glow transition-all duration-300 hover:scale-105" style={{ color: '#0a1628' }}>
                   立即咨询 <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="bg-transparent text-primary-foreground border-primary-foreground hover:bg-primary-foreground hover:text-primary"
-              >
-                <a href="tel:18980020731">
+                <a href="tel:18980020731" className="inline-flex items-center justify-center px-8 py-4 text-sm font-medium rounded-full border-2 transition-all duration-300" style={{ borderColor: '#d4a853', color: '#d4a853' }}>
                   电话咨询：189-8002-0731
                 </a>
-              </Button>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
     </div>
