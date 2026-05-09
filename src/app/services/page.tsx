@@ -121,7 +121,7 @@ export default function ServicesPage() {
                 { icon: '📊', title: '决策支撑报告', desc: '出具专业尽调报告，支撑投资决策' },
               ].map((item, i) => (
                 <StaggerItem key={i}>
-                  <div className="rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1" style={{ backgroundColor: '#f8f7f4' }}>
+                  <div className="rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 h-full" style={{ backgroundColor: '#f8f7f4' }}>
                     <div className="text-3xl mb-3">{item.icon}</div>
                     <h3 className="font-bold mb-2" style={{ color: '#0a1628' }}>{item.title}</h3>
                     <p className="text-sm" style={{ color: '#6b7280' }}>{item.desc}</p>
